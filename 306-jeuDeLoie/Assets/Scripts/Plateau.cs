@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Plateau : MonoBehaviour
 {
+
+    private List<Case> cases = new List<Case>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,10 @@ public class Plateau : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GenererPlateau()
+    {
+
     }
 }

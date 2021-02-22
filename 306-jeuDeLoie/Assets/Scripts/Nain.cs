@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Nain : Espece
 {
+
+    private string nom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +18,15 @@ public class Nain : Espece
     {
         
     }
+
+    public override void SeDeplacer()
+    {
+
+    }
+
+    public override void Action()
+    {
+
+    }
+
 }

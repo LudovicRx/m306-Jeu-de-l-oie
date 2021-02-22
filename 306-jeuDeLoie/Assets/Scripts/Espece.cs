@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Espece : MonoBehaviour
 {
+    private string nom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,15 @@ public class Espece : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public virtual void SeDeplacer()
+    {
+
+    }
+
+    public virtual void Action()
+    {
+
     }
 }

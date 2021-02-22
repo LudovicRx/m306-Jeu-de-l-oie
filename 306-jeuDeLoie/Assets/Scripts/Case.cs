@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Case : MonoBehaviour
 {
+    private long idCase;
+    private List<Gage> gage = new List<Gage>();
+
     // Start is called before the first frame update
     void Start()
     {

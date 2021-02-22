@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Joueur : MonoBehaviour
 {
+    private string nom;
+    private Espece espece;
+    private Case emplacement;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +19,20 @@ public class Joueur : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void LancerDe()
+    {
+
+    }
+
+    public void Action()
+    {
+
+    }
+
+    private void SeDeplacer()
+    {
+
     }
 }

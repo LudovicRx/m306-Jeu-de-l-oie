@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Fee : Espece
 {
+
+    private string nom; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,15 @@ public class Fee : Espece
     void Update()
     {
         
+    }
+
+    public override void SeDeplacer()
+    {
+
+    }
+
+    public override void Action()
+    {
+
     }
 }

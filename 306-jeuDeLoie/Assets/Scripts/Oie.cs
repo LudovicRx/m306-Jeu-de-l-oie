@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Oie : MonoBehaviour
 {
+
+    private List<Case> cases = new List<Case>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,28 @@ public class Oie : MonoBehaviour
     void Update()
     {
         
+    }
+
+    
+    public void Jouer()
+    {
+
+    }
+
+    private void Tempeter()
+    {
+
+    }
+    private void Foudrer()
+    {
+
+    }
+    private void Innonder()
+    {
+
+    }
+    private void Glacer()
+    {
+
     }
 }

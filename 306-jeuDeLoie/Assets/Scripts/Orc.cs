@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Orx : Espece
+public class Orc : Espece
 {
+    private string nom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,16 @@ public class Orx : Espece
     void Update()
     {
         
+    }
+
+
+    public override void SeDeplacer()
+    {
+
+    }
+
+    public override void Action()
+    {
+
     }
 }
