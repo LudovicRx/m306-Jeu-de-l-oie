@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BtnJouer : MonoBehaviour
+public class BtnCreerPartie : MonoBehaviour
 {
-     private string texte; 
+        
 
+    private string texte;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +19,7 @@ public class BtnJouer : MonoBehaviour
         
     }
 
-    public void Jouer()
+    public void CreerPartie()
     {
-
-    }
-
-    void OnMouseDown()
-    {
-       // Debug.Log("sKUR");
     }
 }

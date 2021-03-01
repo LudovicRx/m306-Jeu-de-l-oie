@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class btnCreerPartie : MonoBehaviour
+public class BtnCreerPartie : MonoBehaviour
 {
     private string texte;
     // Start is called before the first frame update
