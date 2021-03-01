@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BtnJouer : MonoBehaviour
+public class BtnRegle : MonoBehaviour
 {
-     private string texte; 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,15 +14,5 @@ public class BtnJouer : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void Jouer()
-    {
-
-    }
-
-    void OnMouseDown()
-    {
-       // Debug.Log("sKUR");
     }
 }
