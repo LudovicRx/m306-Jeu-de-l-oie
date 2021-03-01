@@ -5,10 +5,25 @@ using UnityEngine;
 public class btnCreerPartie : MonoBehaviour
 {
     private string texte;
+    private int nbJoueurs;
+    public GameObject jeu;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        nbJoueurs = jeu.GetComponent<Jeu>().ObtientNbJoueur();
+
+        List<Joueur> joueursProvisoirs = new List<Joueur>();
+
+        //Pré-fabriquer des personnage aux races et noms aléatoires, au nombre des joueurs
+        for (int i = 0; i < nbJoueurs; i++)
+        {
+            joueursProvisoirs.Add(new Joueur());
+            joueursProvisoirs[i].DetermineEspeceDefaut();
+            joueursProvisoirs[i].DetermineNomDefaut();
+        }
+
+        jeu.GetComponent<Jeu>().DetermineJoueurs(joueursProvisoirs);
     }
 
     // Update is called once per frame
@@ -19,5 +34,6 @@ public class btnCreerPartie : MonoBehaviour
 
     public void CreerPartie()
     {
+
     }
 }

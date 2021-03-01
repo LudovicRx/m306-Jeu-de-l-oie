@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BtnJouer : MonoBehaviour
 {
-     private string texte; 
+    private string texte;
 
-    // Start is called before the first frame update
+    //Appelé avant le premier update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    //Appelé à chaque frame
     void Update()
     {
         
@@ -20,5 +20,6 @@ public class BtnJouer : MonoBehaviour
 
     public void Jouer()
     {
+        
     }
 }
