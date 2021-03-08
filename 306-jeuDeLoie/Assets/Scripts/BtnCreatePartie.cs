@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BtnCreerPartie : MonoBehaviour
+public class BtnCreatePartie : MonoBehaviour
 {
         
 

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Case : MonoBehaviour
 {
-    private long idCase;
+    public int IdCase;
 
-    private GameObject gameObject;
+    // private GameObject gameObject;
     private List<Gage> gage = new List<Gage>();
 
     // Start is called before the first frame update
@@ -21,9 +21,9 @@ public class Case : MonoBehaviour
 
     }
 
-    public Case(long InIdCase, GameObject InGameObject)
-    {
-        idCase = InIdCase;
-        gameObject = InGameObject;
-    }
+    // public Case(long InIdCase, GameObject InGameObject)
+    // {
+    //     idCase = InIdCase;
+    //     gameObject = InGameObject;
+    // }
 }
