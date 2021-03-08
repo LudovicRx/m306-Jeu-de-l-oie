@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Jeu : MonoBehaviour
 {
+    public GameObject joueur;
+
     // VARIABLES 
-    private List<Joueur> joueurs = new List<Joueur>();
+    public List<Joueur> joueurs = new List<Joueur>();
     private List<Gage> gages = new List<Gage>();
     private Plateau plateau;
-    private Oie oie;
+    private Oie oie;    
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +36,17 @@ public class Jeu : MonoBehaviour
         return new Joueur();
     }
 
+    public int ObtientNbJoueur()
+    {
+        return joueurs.Count;
+    }
 
+    public void DetermineJoueurs(List<Joueur> joueursParDefaut)
+    {
+        this.joueurs = joueursParDefaut;
+    }
+
+    public List<Joueur> ObtientJoueurs() {
+        return joueurs;
+    }
 }
