@@ -11,6 +11,17 @@ public class BtnCreerPartie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void CreerPartie()
+    {
         nbJoueurs = jeu.GetComponent<Jeu>().ObtientNbJoueur();
 
         List<Joueur> joueursProvisoirs = new List<Joueur>();
@@ -24,16 +35,5 @@ public class BtnCreerPartie : MonoBehaviour
         }
 
         jeu.GetComponent<Jeu>().DetermineJoueurs(joueursProvisoirs);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void CreerPartie()
-    {
-
     }
 }
