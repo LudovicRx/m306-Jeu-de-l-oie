@@ -20,6 +20,15 @@ public class BtnJouer : MonoBehaviour
 
     public void Jouer()
     {
+<<<<<<< HEAD
         
+=======
+
+    }
+
+    void OnMouseDown()
+    {
+       // Debug.Log("sKUR");
+>>>>>>> main
     }
 }
