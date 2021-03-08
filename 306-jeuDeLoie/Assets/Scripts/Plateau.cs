@@ -9,7 +9,7 @@ public class Plateau : MonoBehaviour
     private int nbColonnes = 16;
     private int nbLignes = 12;
     public Tuple<bool, int>[,] casesJouables;
-    private List<Case> cases = new List<Case>();
+    public List<GameObject> cases = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -142,6 +142,7 @@ public class Plateau : MonoBehaviour
                     GameObject nouvelleCase = Instantiate(modeleCase);
                     nouvelleCase.GetComponent<Case>().IdCase = casesJouables[ligne, col].Item2;
                     PlacerElement(nouvelleCase, this.gameObject, modeleCase, ligne, col);
+                    cases.Add(nouvelleCase);
                     // cases.Add(new Case(casesJouables[ligne, col].Item2, PlacerElement(Instantiate(modeleCase), this.gameObject, modeleCase, ligne, col)));
                     // ;
                     // Instantiate(modeleCase, this.GetComponent<Transform>());
