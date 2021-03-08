@@ -30,8 +30,6 @@ public class BtnJouer : MonoBehaviour
 
     void OnMouseDown()
     {
-     
-
-       camera.GetComponent<Transform>().position =  fondCreerPartie.GetComponent<Renderer>().bounds.center;
+       camera.GetComponent<Transform>().position = new Vector3(fondCreerPartie.transform.position.x, fondCreerPartie.transform.position.y,60);
     }
 }
