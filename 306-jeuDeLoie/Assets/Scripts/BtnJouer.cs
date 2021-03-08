@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class BtnJouer : MonoBehaviour
 {
-     private string texte; 
+     private string texte;
+
+    public GameObject camera;
+    public GameObject creerPartie;
+    public GameObject fondCreerPartie;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+         creerPartie.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
     }
 
     // Update is called once per frame
@@ -25,6 +30,8 @@ public class BtnJouer : MonoBehaviour
 
     void OnMouseDown()
     {
-       // Debug.Log("sKUR");
+     
+
+       camera.GetComponent<Transform>().position =  fondCreerPartie.GetComponent<Renderer>().bounds.center;
     }
 }
