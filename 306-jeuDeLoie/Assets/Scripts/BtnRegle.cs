@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class BtnRegle : MonoBehaviour
 {
-
     
     public GameObject camera;
-    public GameObject creerPartie;
-    public GameObject fondCreerPartie;
+    public GameObject regles;
+    public GameObject fondRegle;
     // Start is called before the first frame update
     void Start()
     {
-        
+         regles.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
     }
 
     // Update is called once per frame
@@ -23,6 +22,6 @@ public class BtnRegle : MonoBehaviour
 
   void OnMouseDown()
     {
-       camera.GetComponent<Transform>().position = new Vector3(fondCreerPartie.transform.position.x, fondCreerPartie.transform.position.y,60);
+       camera.GetComponent<Transform>().position = new Vector3(fondRegle.transform.position.x, fondRegle.transform.position.y,60);
     }
 }
