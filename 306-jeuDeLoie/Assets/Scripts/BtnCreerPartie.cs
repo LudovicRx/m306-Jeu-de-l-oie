@@ -27,7 +27,7 @@ public class BtnCreerPartie : MonoBehaviour
    void OnMouseDown()
    {
        //Enregistrer le nombre de joueurs entré par les utilisateurs
-       nbJoueurs = "remplacer par textarea.text";
+       nbJoueurs = 1;
 
        //créer la partie (générer le bon nombre de joueurs)
        CreerPartie();
