@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Plateau : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Plateau : MonoBehaviour
     private int nbLignes = 12;
     public Tuple<bool, int>[,] casesJouables;
     public List<GameObject> cases = new List<GameObject>();
+    public List<GameObject> casesDepart = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +70,7 @@ public class Plateau : MonoBehaviour
         casesJouables[5, 9] = new Tuple<bool, int>(true, 47);
         casesJouables[6, 9] = new Tuple<bool, int>(true, 48);
         casesJouables[7, 9] = new Tuple<bool, int>(true, 49);
-        casesJouables[7, 10] = new Tuple<bool, int>(true, 50);  
+        casesJouables[7, 10] = new Tuple<bool, int>(true, 50);
         casesJouables[7, 11] = new Tuple<bool, int>(true, 51);
         casesJouables[6, 11] = new Tuple<bool, int>(true, 52);
         casesJouables[5, 11] = new Tuple<bool, int>(true, 53);
@@ -140,9 +142,18 @@ public class Plateau : MonoBehaviour
                 if (casesJouables[ligne, col] != null && casesJouables[ligne, col].Item1)
                 {
                     GameObject nouvelleCase = Instantiate(modeleCase);
-                    nouvelleCase.GetComponent<Case>().IdCase = casesJouables[ligne, col].Item2;
                     PlacerElement(nouvelleCase, this.gameObject, modeleCase, ligne, col);
-                    cases.Add(nouvelleCase);
+                    
+                    if (casesJouables[ligne, col].Item2 == 0)
+                    {
+                        casesDepart.Add(nouvelleCase);
+                    }
+                    else
+                    {
+                        nouvelleCase.GetComponent<Case>().IdCase = casesJouables[ligne, col].Item2;
+                        cases.Add(nouvelleCase);
+                    }
+
                     // cases.Add(new Case(casesJouables[ligne, col].Item2, PlacerElement(Instantiate(modeleCase), this.gameObject, modeleCase, ligne, col)));
                     // ;
                     // Instantiate(modeleCase, this.GetComponent<Transform>());
@@ -150,6 +161,7 @@ public class Plateau : MonoBehaviour
                 }
             }
         }
+        cases = cases.OrderBy<GameObject, int>(c => c.GetComponent<Case>().IdCase).ToList();
     }
 
 
