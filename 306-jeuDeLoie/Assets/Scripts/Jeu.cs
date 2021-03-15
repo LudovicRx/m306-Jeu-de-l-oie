@@ -18,6 +18,10 @@ public class Jeu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        joueurs.Add(joueur.GetComponent<Joueur>());
+        joueurs.Add(joueur2.GetComponent<Joueur>());
+        joueurs.Add(joueur3.GetComponent<Joueur>());
+        joueurs.Add(joueur4.GetComponent<Joueur>());
     }
 
     // Update is called once per frame
@@ -28,6 +32,12 @@ public class Jeu : MonoBehaviour
             VerifierGagnant();
             joueur.GetComponent<Transform>().SetParent(plateau.cases[4].GetComponent<Transform>());
             joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0, 0.017f);
+            joueur.GetComponent<Joueur>().emplacement = plateau.cases[4].GetComponent<Case>();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("oui monsieur");
+            joueur.GetComponent<Joueur>().LancerDe();
         }
     }
 

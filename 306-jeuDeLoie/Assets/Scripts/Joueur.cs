@@ -27,7 +27,7 @@ public class Joueur : MonoBehaviour
     public void LancerDe()
     {
         int result = nombreRandom.Next(1, 7);
-        SeDeplacer(result);
+        this.SeDeplacer(result);
     }
 
     public void Action()
@@ -37,7 +37,9 @@ public class Joueur : MonoBehaviour
 
     private void SeDeplacer(int nbDeplacement)
     {
-        this.GetComponent<Transform>().SetParent(plateau.cases[4 + nbDeplacement].GetComponent<Transform>());
+        this.emplacement =  plateau.cases[this.emplacement.IdCase + nbDeplacement].GetComponent<Case>();
+        this.GetComponent<Transform>().SetParent(this.emplacement.gameObject.GetComponent<Transform>());
+        this.GetComponent<Transform>().localPosition = new Vector3(0, 0, 0.017f);
     }
 
     public void DetermineEspeceDefaut()
