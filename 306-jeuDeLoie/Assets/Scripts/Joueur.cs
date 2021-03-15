@@ -8,7 +8,7 @@ public class Joueur : MonoBehaviour
 
     private string nom;
     private Espece espece;
-    private Case emplacement;
+    public Case emplacement;
     
 
     // Start is called before the first frame update
@@ -35,7 +35,7 @@ public class Joueur : MonoBehaviour
 
     private void SeDeplacer()
     {
-
+        
     }
 
     public void DetermineEspeceDefaut()
