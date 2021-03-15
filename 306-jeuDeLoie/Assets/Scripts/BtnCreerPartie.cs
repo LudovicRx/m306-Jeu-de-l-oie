@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BtnCreerPartie : MonoBehaviour
 {
+    public GameObject camera;
+    public GameObject pageConfig;
+    public GameObject fondPageConfig;
+
     private string texte;
     private int nbJoueurs;
     public GameObject jeu;
@@ -11,7 +15,7 @@ public class BtnCreerPartie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+         pageConfig.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
     }
 
     // Update is called once per frame
@@ -19,6 +23,12 @@ public class BtnCreerPartie : MonoBehaviour
     {
         
     }
+
+   void OnMouseDown()
+   {
+        
+       camera.GetComponent<Transform>().position = new Vector3(fondPageConfig.transform.position.x, fondPageConfig.transform.position.y,60);
+   }
 
     public void CreerPartie()
     {
