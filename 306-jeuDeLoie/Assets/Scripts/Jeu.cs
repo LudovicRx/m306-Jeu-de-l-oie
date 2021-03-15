@@ -25,8 +25,9 @@ public class Jeu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            VerifierGagnant();
             joueur.GetComponent<Transform>().SetParent(plateau.cases[4].GetComponent<Transform>());
-            joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0.02f, 0.02f);
+            joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0, 0.017f);
         }
     }
 
@@ -39,7 +40,13 @@ public class Jeu : MonoBehaviour
     // Retourne le joueur qui gagne
     public Joueur VerifierGagnant()
     {
-        return new Joueur();
+        foreach (var joueur in joueurs)
+        {
+            if(joueur.emplacement == plateau.cases[plateau.cases.Count - 1]) {
+                return joueur;
+            }
+        }
+        return null;
     }
 
     public int ObtientNbJoueur()
