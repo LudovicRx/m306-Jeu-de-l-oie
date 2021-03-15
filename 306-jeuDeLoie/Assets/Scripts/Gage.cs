@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Gage : MonoBehaviour
 {
-    private string description;
+    public string description;
+
+    public Gage(string Description){
+        description = Description;
+    }
 
     // Start is called before the first frame update
     void Start()

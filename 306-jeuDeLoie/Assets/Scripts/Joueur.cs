@@ -5,7 +5,7 @@ using UnityEngine;
 public class Joueur : MonoBehaviour
 {
     public static List<string> noms = new List<string>() { "Thalion", "Alta", "Ama", "Ulnim", "Wing-leon", "Themeril", "Riantho", "Sylcir", "Voril", "Thosrodior", "Maehal", "Raxa", "Caror", "Vargnor", "Laimor", "Galcir", "Ingimor" };
-    private System.Random nombreRandom = new System.Random();
+    private static System.Random nombreRandom = new System.Random();
     private string nom;
     private Espece espece;
     public Case emplacement;
@@ -32,20 +32,16 @@ public class Joueur : MonoBehaviour
 
     public void Action()
     {
-        //appeler l'action propre à l'espèce du joueur
-        espece.Action();
+
     }
 
     private void SeDeplacer(int nbDeplacement)
     {
-
-        //se déplacer à la manière de l'espèce du joueur
-        espece.SeDeplacer();
-
-        this.emplacement =  plateau.cases[this.emplacement.IdCase + nbDeplacement].GetComponent<Case>();
-        this.GetComponent<Transform>().SetParent(this.emplacement.gameObject.GetComponent<Transform>());
-        this.GetComponent<Transform>().localPosition = new Vector3(0, 0, 0.017f);
-
+        int idNewCase = nbDeplacement + this.emplacement.GetComponent<Case>().IdCase;
+        if (idNewCase <= plateau.cases.Count)
+        {
+            this.emplacement = plateau.cases[idNewCase - 1].GetComponent<Case>();
+        }
     }
 
     public void DetermineEspeceDefaut()
@@ -53,7 +49,7 @@ public class Joueur : MonoBehaviour
         System.Random rnd = new System.Random();
         int numEspece = rnd.Next(0, 4);
 
-        //Donner une espèce aléatoire au joueur par défaut
+        //Donner une espèce aléatoire au joueur par défaut  
         switch (numEspece)
         {
             case 0:

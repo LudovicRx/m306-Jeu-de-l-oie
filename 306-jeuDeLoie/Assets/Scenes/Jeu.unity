@@ -336,12 +336,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d1b18d1e9ff5940adbe4c0d5132dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joueur: {fileID: 2104076386}
+  joueur1: {fileID: 2104076386}
   joueur2: {fileID: 1892183855}
   joueur3: {fileID: 721864431}
   joueur4: {fileID: 1673620900}
   joueurs: []
   plateau: {fileID: 952467375}
+  joueurActuel: 0
 --- !u!1001 &307255182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,6 +497,7 @@ MonoBehaviour:
   modeleCase: {fileID: 1381832601646304881, guid: b7133f30b7b4f4a46a8654a4b92f2998,
     type: 3}
   cases: []
+  casesDepart: []
 --- !u!4 &952467376
 Transform:
   m_ObjectHideFlags: 0
