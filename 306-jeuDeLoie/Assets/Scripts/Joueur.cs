@@ -5,10 +5,11 @@ using UnityEngine;
 public class Joueur : MonoBehaviour
 {
     public static List<string> noms = new List<string>() { "Thalion", "Alta", "Ama", "Ulnim", "Wing-leon", "Themeril", "Riantho", "Sylcir", "Voril", "Thosrodior", "Maehal", "Raxa", "Caror", "Vargnor", "Laimor", "Galcir", "Ingimor" };
-
+    private System.Random nombreRandom = new System.Random();
     private string nom;
     private Espece espece;
-    private Case emplacement;
+    public Case emplacement;
+    public Plateau plateau;
     
 
     // Start is called before the first frame update
@@ -25,7 +26,8 @@ public class Joueur : MonoBehaviour
 
     public void LancerDe()
     {
-
+        int result = nombreRandom.Next(1, 7);
+        SeDeplacer(result);
     }
 
     public void Action()
@@ -33,9 +35,9 @@ public class Joueur : MonoBehaviour
 
     }
 
-    private void SeDeplacer()
+    private void SeDeplacer(int nbDeplacement)
     {
-
+        this.GetComponent<Transform>().SetParent(plateau.cases[4 + nbDeplacement].GetComponent<Transform>());
     }
 
     public void DetermineEspeceDefaut()

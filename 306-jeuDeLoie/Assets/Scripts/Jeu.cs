@@ -5,6 +5,9 @@ using UnityEngine;
 public class Jeu : MonoBehaviour
 {
     public GameObject joueur;
+    public GameObject joueur2;
+    public GameObject joueur3;
+    public GameObject joueur4;
 
     // VARIABLES 
     public List<Joueur> joueurs = new List<Joueur>();
@@ -15,7 +18,6 @@ public class Jeu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class Jeu : MonoBehaviour
     // Initialisation du jeu 
     public void InitialiserJeu()
     {
-
+        
     }
 
     // Retourne le joueur qui gagne
@@ -55,6 +57,6 @@ public class Jeu : MonoBehaviour
     }
 
     public void BougeJoueur() {
-
+        
     }
 }
