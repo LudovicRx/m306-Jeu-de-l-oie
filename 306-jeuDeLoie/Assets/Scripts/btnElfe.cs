@@ -15,4 +15,17 @@ public class btnElfe : MonoBehaviour
     {
         
     }
+
+    void OnMouseDown()
+    {
+       //Changer la race du personnage en train d'être configuré
+
+       nbJoueurs = "remplacer par textarea.text";
+
+       //créer la partie (générer le bon nombre de joueurs)
+       CreerPartie();
+
+       //Aller sur la page pour personnaliser les personnages
+       camera.GetComponent<Transform>().position = new Vector3(fondPageConfig.transform.position.x, fondPageConfig.transform.position.y, 60);
+    }
 }

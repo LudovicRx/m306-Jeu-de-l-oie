@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\306-jeuDeLoie",
+    "\\306-jeuDeLoie\\Assets",
+    "\\306-jeuDeLoie\\Assets\\Scripts"
   ],
-  "SelectedNode": "\\306-jeuDeLoie",
+  "SelectedNode": "\\306-jeuDeLoie\\Assets\\Scripts\\Jeu.cs",
   "PreviewInSolutionExplorer": false
 }

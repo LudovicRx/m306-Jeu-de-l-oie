@@ -13,7 +13,7 @@ public class Jeu : MonoBehaviour
     public List<Joueur> joueurs = new List<Joueur>();
     private List<Gage> gages = new List<Gage>();
     public Plateau plateau;
-    private Oie oie;    
+    private Oie oie = new Oie();
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +61,7 @@ public class Jeu : MonoBehaviour
 
     public int ObtientNbJoueur()
     {
-        return joueurs.Count;
+        return joueurs.Count();
     }
 
     public void DetermineJoueurs(List<Joueur> joueursParDefaut)
@@ -75,5 +75,10 @@ public class Jeu : MonoBehaviour
 
     public void BougeJoueur() {
         
+    }
+
+    public void ActiverOie(){
+        //L'oie joue son tour
+        oie.Jouer(joueurs.Count());
     }
 }

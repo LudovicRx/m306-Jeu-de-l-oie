@@ -6,6 +6,7 @@ public class ConfigurationPartie : MonoBehaviour
 {
     public GameObject jeu;
     private int idJoueur;
+    private Espece espece;
 
     //Appelé avant la première frame
     void Start()
