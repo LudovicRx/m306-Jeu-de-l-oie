@@ -18,13 +18,14 @@ public class ConfigurationPartie : MonoBehaviour
     {
         
     }
-    
+
     public void MettreAJourJoueur()
     {
         //Le joueur a modifie les informations de son personnage - appeler quand on clique sur une flèche
 
-        // /!\ Récupérer les informations
+        // /!\ Récupérer le champs pseudo
         jeu.GetComponent<Jeu>().ObtientJoueurs()[idJoueur].DetermineNom("nom récupéré dans le champs");
+        // /!\ Récupérer la race sélectionnée (radiobutton)
         jeu.GetComponent<Jeu>().ObtientJoueurs()[idJoueur].DetermineEspece(new Espece());
     }
 

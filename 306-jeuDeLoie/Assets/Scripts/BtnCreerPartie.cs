@@ -15,7 +15,7 @@ public class BtnCreerPartie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         pageConfig.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
+        pageConfig.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
     }
 
     // Update is called once per frame
@@ -26,14 +26,18 @@ public class BtnCreerPartie : MonoBehaviour
 
    void OnMouseDown()
    {
-        
-       camera.GetComponent<Transform>().position = new Vector3(fondPageConfig.transform.position.x, fondPageConfig.transform.position.y,60);
+       //Enregistrer le nombre de joueurs entré par les utilisateurs
+       nbJoueurs = "remplacer par textarea.text";
+
+       //créer la partie (générer le bon nombre de joueurs)
+       CreerPartie();
+
+       //Aller sur la page pour personnaliser les personnages
+       camera.GetComponent<Transform>().position = new Vector3(fondPageConfig.transform.position.x, fondPageConfig.transform.position.y, 60);
    }
 
     public void CreerPartie()
     {
-        nbJoueurs = jeu.GetComponent<Jeu>().ObtientNbJoueur();
-
         List<Joueur> joueursProvisoirs = new List<Joueur>();
 
         //Pré-fabriquer des personnage aux races et noms aléatoires, au nombre des joueurs

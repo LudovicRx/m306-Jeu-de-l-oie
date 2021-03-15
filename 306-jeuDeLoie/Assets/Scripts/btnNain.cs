@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BtnLancer : MonoBehaviour
+public class btnNain : MonoBehaviour
 {
-     private string texte;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +14,5 @@ public class BtnLancer : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void Lancer()
-    {
-        //Aller sur le plateau de jeu (changer de scène)
     }
 }

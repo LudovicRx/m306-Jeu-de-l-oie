@@ -5,7 +5,7 @@ using UnityEngine;
 public class BtnFleche : MonoBehaviour
 {
     public GameObject configurationpartie;
-    private bool etat;
+    private bool direction;
     private ConfigurationPartie configuration;
 
     // Start is called before the first frame update
@@ -20,11 +20,16 @@ public class BtnFleche : MonoBehaviour
         
     }
 
+    void OnMouseDown()
+    {
+        ChangerConfiguration();
+    }
+
     public void ChangerConfiguration()
     {
         //quand on clique sur une flèche, enregistrer les changement du personnage actuel
-        configuration.GetComponent<ConfigurationPartie>().ChangerIdJoueur(etat);
+        configuration.GetComponent<ConfigurationPartie>().MettreAJourJoueur();
         //puis passer au personnage suivant
-        configuration.GetComponent<ConfigurationPartie>().ChangerIdJoueur(etat);
+        configuration.GetComponent<ConfigurationPartie>().ChangerIdJoueur(direction);
     }
 }
