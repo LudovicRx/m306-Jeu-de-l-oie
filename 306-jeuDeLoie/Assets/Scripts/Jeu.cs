@@ -9,7 +9,7 @@ public class Jeu : MonoBehaviour
     // VARIABLES 
     public List<Joueur> joueurs = new List<Joueur>();
     private List<Gage> gages = new List<Gage>();
-    private Plateau plateau;
+    public Plateau plateau;
     private Oie oie;    
 
     // Start is called before the first frame update
@@ -21,7 +21,11 @@ public class Jeu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            joueur.GetComponent<Transform>().SetParent(plateau.cases[4].GetComponent<Transform>());
+            joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0.02f, 0.02f);
+        }
     }
 
     // Initialisation du jeu 
@@ -48,5 +52,9 @@ public class Jeu : MonoBehaviour
 
     public List<Joueur> ObtientJoueurs() {
         return joueurs;
+    }
+
+    public void BougeJoueur() {
+
     }
 }
