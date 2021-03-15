@@ -45,8 +45,8 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1307
-  m_MinSize: {x: 678, y: 342}
-  m_MaxSize: {x: 12003, y: 8042}
+  m_MinSize: {x: 677, y: 342}
+  m_MaxSize: {x: 12002, y: 8042}
   vertical: 0
   controlID: 54
 --- !u!114 &3
@@ -216,8 +216,8 @@ MonoBehaviour:
     y: 0
     width: 1950
     height: 1307
-  m_MinSize: {x: 403, y: 342}
-  m_MaxSize: {x: 8003, y: 8042}
+  m_MinSize: {x: 402, y: 342}
+  m_MaxSize: {x: 8002, y: 8042}
   vertical: 1
   controlID: 55
 --- !u!114 &10
@@ -241,8 +241,8 @@ MonoBehaviour:
     y: 0
     width: 1950
     height: 790
-  m_MinSize: {x: 403, y: 221}
-  m_MaxSize: {x: 8003, y: 4021}
+  m_MinSize: {x: 402, y: 221}
+  m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
   controlID: 56
 --- !u!114 &11
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -266,13 +266,13 @@ MonoBehaviour:
     height: 790
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 12}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,19 +338,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefab
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefab
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\julianmr\Desktop\m306-Jeu-de-l-oie\306-jeuDeLoie
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 84380000
-    m_LastClickedID: 14468
+    m_SelectedIDs: b4360000
+    m_LastClickedID: 14004
     m_ExpandedIDs: 000000009436000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -404,8 +404,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c83a0000
-    m_LastClickedInstanceID: 15048
+    m_SelectedInstanceIDs: 04360000
+    m_LastClickedInstanceID: 13828
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -501,10 +501,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 1076}
-      m_SelectedIDs: 50beffff
-      m_LastClickedID: -16816
-      m_ExpandedIDs: 1ec3ffffe0c4ffff58fbffffc0350000d63a0000dc3c0000ec3c0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: d4360000
+      m_LastClickedID: 14036
+      m_ExpandedIDs: d0b3ffffdab3ffff26d1ffff80d1ffffc6d1ffffaafaffff68fbffffd4360000e4360000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -564,9 +564,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 11.576368, y: -76.24882, z: 36.750046}
+    m_Target: {x: 8.01268, y: -3.3083096, z: 72.69153}
     speed: 2
-    m_Value: {x: 11.576368, y: -76.24882, z: 36.750046}
+    m_Value: {x: 8.01268, y: -3.3083096, z: 72.69153}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -612,13 +612,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.4673615, y: 0.0045062206, z: -0.0023820386, w: -0.88405406}
+    m_Target: {x: -0.024257666, y: -0.06384066, z: 0.0015522647, w: -0.99766475}
     speed: 2
-    m_Value: {x: -0.46868196, y: 0.0058276528, z: -0.0030918166, w: -0.8833424}
+    m_Value: {x: -0.024257649, y: -0.06384061, z: 0.0015522635, w: -0.99766403}
   m_Size:
-    m_Target: 60.64486
+    m_Target: 50.575367
     speed: 2
-    m_Value: 58.03336
+    m_Value: 50.575367
   m_Ortho:
     m_Target: 0
     speed: 2
