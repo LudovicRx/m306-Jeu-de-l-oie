@@ -28,8 +28,9 @@ public class BtnJouer : MonoBehaviour
 
     }
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
+       //aller sur la page pour créer une partie (choisir le nombre de joueurs)
        camera.GetComponent<Transform>().position = new Vector3(fondCreerPartie.transform.position.x, fondCreerPartie.transform.position.y,60);
     }
 }

@@ -30,12 +30,14 @@ public class Joueur : MonoBehaviour
 
     public void Action()
     {
-
+        //appeler l'action propre à l'espèce du joueur
+        espece.Action();
     }
 
     private void SeDeplacer()
     {
-
+        //se déplacer à la manière de l'espèce du joueur
+        espece.SeDeplacer();
     }
 
     public void DetermineEspeceDefaut()
