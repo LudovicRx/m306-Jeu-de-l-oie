@@ -13,6 +13,8 @@ public class Jeu : MonoBehaviour
     public List<Joueur> joueurs = new List<Joueur>();
     public Plateau plateau;
     private Oie oie;
+
+    public Joueur joueurGagnant = null;
     public int joueurActuel;
 
     // Start is called before the first frame update
@@ -33,13 +35,18 @@ public class Jeu : MonoBehaviour
             InitialiserJeu();
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
+        if (joueurGagnant == null)
         {
-            joueurs[joueurActuel].LancerDe();
-            BougeJoueur(joueurs[joueurActuel], joueurs[joueurActuel].emplacement.gameObject);
-            joueurActuel++;
-            joueurActuel %= ObtientNbJoueur();
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                joueurs[joueurActuel].LancerDe();
+                BougeJoueur(joueurs[joueurActuel], joueurs[joueurActuel].emplacement.gameObject);
+                joueurActuel++;
+                joueurActuel %= ObtientNbJoueur();
+                joueurGagnant = VerifierGagnant();
+            }
         }
+
     }
 
     // Initialisation du jeu
@@ -56,7 +63,7 @@ public class Jeu : MonoBehaviour
     {
         foreach (var joueur in joueurs)
         {
-            if (joueur.emplacement == plateau.cases[plateau.cases.Count - 1])
+            if (joueur.emplacement == plateau.cases[plateau.cases.Count - 1].GetComponent<Case>())
             {
                 return joueur;
             }
@@ -66,7 +73,7 @@ public class Jeu : MonoBehaviour
 
     public int ObtientNbJoueur()
     {
-        return joueurs.Count();
+        return joueurs.Count;
     }
 
     public void DetermineJoueurs(List<Joueur> joueursParDefaut)
@@ -90,8 +97,9 @@ public class Jeu : MonoBehaviour
         }
     }
 
-    public void ActiverOie(){
+    public void ActiverOie()
+    {
         //L'oie joue son tour
-        oie.Jouer(joueurs.Count());
+        oie.Jouer(joueurs.Count);
     }
 }

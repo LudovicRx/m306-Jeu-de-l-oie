@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class btnElfe : MonoBehaviour
 {
+    public GameObject camera;
+    public GameObject fondPageConfig;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +23,10 @@ public class btnElfe : MonoBehaviour
     {
        //Changer la race du personnage en train d'être configuré
 
-       nbJoueurs = "remplacer par textarea.text";
+       //nbJoueurs = "remplacer par textarea.text";
 
        //créer la partie (générer le bon nombre de joueurs)
-       CreerPartie();
+       //CreerPartie();
 
        //Aller sur la page pour personnaliser les personnages
        camera.GetComponent<Transform>().position = new Vector3(fondPageConfig.transform.position.x, fondPageConfig.transform.position.y, 60);
