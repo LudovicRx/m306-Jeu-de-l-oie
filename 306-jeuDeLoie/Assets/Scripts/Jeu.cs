@@ -99,7 +99,7 @@ public class Jeu : MonoBehaviour
 
     public void BougeJoueur(Joueur joueur, GameObject c)
     {
-        float z = 0.017f;
+        float z = 0.05f;
         // foreach (Transform child in c.GetComponent<Transform>())
         // {
         //     //  * child.localScale.z
@@ -110,6 +110,7 @@ public class Jeu : MonoBehaviour
 
         }
         joueur.GetComponent<Transform>().SetParent(c.GetComponent<Transform>());
+        joueur.GetComponent<Transform>().rotation = new Quaternion(0, 0, 0, 0);
         joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0, z);
         joueur.GetComponent<Joueur>().emplacement = c.GetComponent<Case>();
 
