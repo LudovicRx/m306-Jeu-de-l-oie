@@ -16,6 +16,7 @@ public class Jeu : MonoBehaviour
 
     public Joueur joueurGagnant = null;
     public int joueurActuel;
+    public PopupGage popupGage;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,11 @@ public class Jeu : MonoBehaviour
         joueurs.Add(joueur2.GetComponent<Joueur>());
         joueurs.Add(joueur3.GetComponent<Joueur>());
         joueurs.Add(joueur4.GetComponent<Joueur>());
-        joueurActuel = 0;
+        foreach (var joueur in joueurs)
+        {
+            joueur.plateau = this.plateau;
+        }
+        popupGage.MasquerGage();
     }
 
     // Update is called once per frame
@@ -33,6 +38,7 @@ public class Jeu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             InitialiserJeu();
+
         }
 
         if (joueurGagnant == null)
@@ -41,6 +47,7 @@ public class Jeu : MonoBehaviour
             {
                 joueurs[joueurActuel].LancerDe();
                 BougeJoueur(joueurs[joueurActuel], joueurs[joueurActuel].emplacement.gameObject);
+                popupGage.AfficherGage(joueurs[joueurActuel].emplacement.gage);
                 joueurActuel++;
                 joueurActuel %= ObtientNbJoueur();
                 joueurGagnant = VerifierGagnant();
@@ -56,6 +63,9 @@ public class Jeu : MonoBehaviour
         {
             BougeJoueur(joueurs[i], plateau.casesDepart[i]);
         }
+        joueurGagnant = null;
+        joueurActuel = 0;
+        popupGage.MasquerGage();
     }
 
     // Retourne le joueur qui gagne
@@ -88,9 +98,20 @@ public class Jeu : MonoBehaviour
 
     public void BougeJoueur(Joueur joueur, GameObject c)
     {
+        float z = 0.017f;
+        // foreach (Transform child in c.GetComponent<Transform>())
+        // {
+        //     //  * child.localScale.z
+        //     z += child.worldToLocalMatrix.m21;
+        // }
+        for (int i = 0; i < c.GetComponent<Transform>().childCount; i++)
+        {
+
+        }
         joueur.GetComponent<Transform>().SetParent(c.GetComponent<Transform>());
-        joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0, 0.017f);
+        joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0, z);
         joueur.GetComponent<Joueur>().emplacement = c.GetComponent<Case>();
+
         if (c.GetComponent<Case>().IdCase > 0)
         {
             Debug.Log(c.GetComponent<Case>().gage.description);
