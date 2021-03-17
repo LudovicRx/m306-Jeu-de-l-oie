@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class PopupGage : MonoBehaviour
 {
     public Button button;
-    public Text TitreGage;
-    public Text DescriptionGage;
+    public Text titreGage;
+    public Text descriptionGage;
 
 
     public void AfficherGage(Gage gage)
     {
         this.gameObject.SetActive(true);
-        TitreGage.text = "Titre temporaire";
-        DescriptionGage.text = gage.description;
+        titreGage.text = "Titre temporaire";
+        descriptionGage.text = gage.description;
     }
 
     public void MasquerGage()

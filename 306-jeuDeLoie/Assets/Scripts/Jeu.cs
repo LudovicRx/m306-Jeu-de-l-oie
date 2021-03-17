@@ -17,6 +17,7 @@ public class Jeu : MonoBehaviour
     public Joueur joueurGagnant = null;
     public int joueurActuel;
     public PopupGage popupGage;
+    public BarreInfo barreInfo;
 
     // Start is called before the first frame update
     void Start()
