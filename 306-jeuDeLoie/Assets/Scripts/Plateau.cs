@@ -13,17 +13,10 @@ public class Plateau : MonoBehaviour
     public Tuple<bool, int>[,] casesJouables;
     public List<GameObject> cases = new List<GameObject>();
     public List<GameObject> casesDepart = new List<GameObject>();
-     private List<Gage> gages = new List<Gage>();
-
 
     // Start is called before the first frame update
     void Start()
     {
-        gages.Add(new Gage("Fait un bras de fer avec la personne qui est à ta droite"));
-        gages.Add(new Gage("Parle comme Yoda pendant les trois prochain tours"));
-        gages.Add(new Gage("Joue à ni oui ni non avec la personne à ta gauche, celui qui perd fait 10 pompes"));
-        gages.Add(new Gage("Ne parle plus pendant trois tours"));
-        gages.Add(new Gage("Fait un combat de regard avec la personne qui est à ta droite"));
 
         casesJouables = new Tuple<bool, int>[nbLignes, nbColonnes];
         casesJouables[0, 0] = new Tuple<bool, int>(true, 0);
@@ -159,7 +152,8 @@ public class Plateau : MonoBehaviour
                     else
                     {
                         nouvelleCase.GetComponent<Case>().IdCase = casesJouables[ligne, col].Item2;
-                        nouvelleCase.GetComponent<Case>().gage = gages[random.Next(gages.Count())];
+                        nouvelleCase.GetComponent<Case>().gage = Gage.gages[random.Next(Gage.gages.Count)];
+                        nouvelleCase.GetComponent<Renderer>().material.color = nouvelleCase.GetComponent<Case>().gage.color;
                         cases.Add(nouvelleCase);
                     }
                 }
