@@ -7,7 +7,7 @@ public class Case : MonoBehaviour
     public int IdCase;
 
     // private GameObject gameObject;
-    private List<Gage> gage = new List<Gage>();
+    public Gage gage;
 
     // Start is called before the first frame update
     void Start()

@@ -5,22 +5,23 @@ using UnityEngine;
 public class Joueur : MonoBehaviour
 {
     public static List<string> noms = new List<string>() { "Thalion", "Alta", "Ama", "Ulnim", "Wing-leon", "Themeril", "Riantho", "Sylcir", "Voril", "Thosrodior", "Maehal", "Raxa", "Caror", "Vargnor", "Laimor", "Galcir", "Ingimor" };
-    private System.Random nombreRandom = new System.Random();
+    private static System.Random nombreRandom = new System.Random();
     private string nom;
     private Espece espece;
     public Case emplacement;
     public Plateau plateau;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void LancerDe()
@@ -36,9 +37,11 @@ public class Joueur : MonoBehaviour
 
     private void SeDeplacer(int nbDeplacement)
     {
-        this.emplacement =  plateau.cases[this.emplacement.IdCase + nbDeplacement].GetComponent<Case>();
-        this.GetComponent<Transform>().SetParent(this.emplacement.gameObject.GetComponent<Transform>());
-        this.GetComponent<Transform>().localPosition = new Vector3(0, 0, 0.017f);
+        int idNewCase = nbDeplacement + this.emplacement.GetComponent<Case>().IdCase;
+        if (idNewCase <= plateau.cases.Count)
+        {
+            this.emplacement = plateau.cases[idNewCase - 1].GetComponent<Case>();
+        }
     }
 
     public void DetermineEspeceDefaut()
@@ -61,7 +64,7 @@ public class Joueur : MonoBehaviour
             case 3:
                 this.espece = new Nain();
                 break;
-        }        
+        }
     }
 
     public void DetermineNomDefaut()

@@ -20,5 +20,6 @@ public class BtnLancer : MonoBehaviour
 
     public void Lancer()
     {
+        //Aller sur le plateau de jeu (changer de scène)
     }
 }
