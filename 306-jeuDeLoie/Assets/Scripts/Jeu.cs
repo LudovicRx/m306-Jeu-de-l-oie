@@ -17,7 +17,8 @@ public class Jeu : MonoBehaviour
     public Joueur joueurGagnant = null;
     public int joueurActuel;
     public PopupGage popupGage;
-    public BarreInfo barreInfo;
+    public HUD hud;
+    public int numeroTour;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,6 @@ public class Jeu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             InitialiserJeu();
-
         }
 
         if (joueurGagnant == null)
@@ -51,6 +51,9 @@ public class Jeu : MonoBehaviour
                 popupGage.AfficherGage(joueurs[joueurActuel].emplacement.gage);
                 joueurActuel++;
                 joueurActuel %= ObtientNbJoueur();
+                if(joueurActuel == 0) {
+                    numeroTour++;
+                }
                 joueurGagnant = VerifierGagnant();
             }
         }
@@ -66,6 +69,7 @@ public class Jeu : MonoBehaviour
         }
         joueurGagnant = null;
         joueurActuel = 0;
+        numeroTour = 1;
         popupGage.MasquerGage();
     }
 
@@ -105,10 +109,10 @@ public class Jeu : MonoBehaviour
         //     //  * child.localScale.z
         //     z += child.worldToLocalMatrix.m21;
         // }
-        for (int i = 0; i < c.GetComponent<Transform>().childCount; i++)
-        {
+        // for (int i = 0; i < c.GetComponent<Transform>().childCount; i++)
+        // {
 
-        }
+        // }
         joueur.GetComponent<Transform>().SetParent(c.GetComponent<Transform>());
         joueur.GetComponent<Transform>().rotation = new Quaternion(0, 0, 0, 0);
         joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0, z);
