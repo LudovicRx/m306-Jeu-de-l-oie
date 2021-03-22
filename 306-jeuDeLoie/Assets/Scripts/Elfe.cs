@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Elfe : Espece
 {
-    private string nom;
 
     // Start is called before the first frame update
     void Start()

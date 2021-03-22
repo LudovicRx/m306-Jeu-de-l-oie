@@ -152,8 +152,11 @@ public class Plateau : MonoBehaviour
                     else
                     {
                         nouvelleCase.GetComponent<Case>().IdCase = casesJouables[ligne, col].Item2;
-                        nouvelleCase.GetComponent<Case>().gage = Gage.gages[random.Next(Gage.gages.Count)];
-                        nouvelleCase.GetComponent<Renderer>().material.color = nouvelleCase.GetComponent<Case>().gage.color;
+                        if (nouvelleCase.GetComponent<Case>().IdCase != 102)
+                        {
+                            nouvelleCase.GetComponent<Case>().gage = Gage.gages[random.Next(Gage.gages.Count)];
+                            nouvelleCase.GetComponent<Renderer>().material.color = nouvelleCase.GetComponent<Case>().gage.color;
+                        }
                         cases.Add(nouvelleCase);
                     }
                 }

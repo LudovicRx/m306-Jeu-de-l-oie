@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class CompteurTour : MonoBehaviour
 {
-    public Text text;
+    public Text content;
     void Start() {
-        text = this.gameObject.GetComponent<Transform>().GetChild(0).GetComponent<Text>();
+        content = this.gameObject.GetComponent<Transform>().GetChild(0).GetComponent<Text>();
     }
 }
