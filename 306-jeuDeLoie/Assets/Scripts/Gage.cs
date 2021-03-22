@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Gage : MonoBehaviour
 {
+    public static UnityEngine.Color bleu = new UnityEngine.Color(60, 128, 248, 255);
+    
     public static List<Gage> gages = new List<Gage>() {
-        new Gage("Fait un bras de fer avec la personne qui est à ta droite", Color.blue),
+        new Gage("Fait un bras de fer avec la personne qui est à ta droite", bleu),
         new Gage("Parle comme Yoda pendant les trois prochain tours", Color.red),
         new Gage("Joue à ni oui ni non avec la personne à ta gauche, celui qui perd fait 10 pompes", Color.green),
         new Gage("Ne parle plus pendant trois tours", Color.magenta),
