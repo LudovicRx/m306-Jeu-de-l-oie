@@ -17,6 +17,8 @@ public class Jeu : MonoBehaviour
     public Joueur joueurGagnant = null;
     public int joueurActuel;
     public PopupGage popupGage;
+
+    public PopupFinPartie popupFin;
     public HUD hud;
     public int numeroTour;
 
@@ -31,7 +33,9 @@ public class Jeu : MonoBehaviour
         {
             joueur.plateau = this.plateau;
         }
-        popupGage.MasquerGage();
+        popupGage.MasquerPopup();
+        popupFin.btnRejouer.onClick.AddListener(InitialiserJeu);
+        popupGage.button.onClick.AddListener(hud.InitBarreInfo);
     }
 
     // Update is called once per frame
@@ -47,14 +51,33 @@ public class Jeu : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.L))
             {
                 joueurs[joueurActuel].LancerDe();
+                hud.InitBarreInfo();
+                hud.UpdateBarreInfo();
+
                 BougeJoueur(joueurs[joueurActuel], joueurs[joueurActuel].emplacement.gameObject);
-                popupGage.AfficherGage(joueurs[joueurActuel].emplacement.gage);
+
+                if (joueurs[joueurActuel].emplacement.IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
+                {
+                    popupGage.AfficherGage(joueurs[joueurActuel].emplacement.gage);
+                }
+
+
                 joueurActuel++;
                 joueurActuel %= ObtientNbJoueur();
-                if(joueurActuel == 0) {
+
+                hud.joueurActuel = joueurs[joueurActuel];
+                if (joueurActuel == 0)
+                {
                     numeroTour++;
+                    hud.UpdateNumeroTour(numeroTour);
                 }
                 joueurGagnant = VerifierGagnant();
+                if (joueurGagnant != null)
+                {
+                    popupFin.AfficherPopUpFin(joueurGagnant);
+
+                }
+
             }
         }
 
@@ -70,7 +93,11 @@ public class Jeu : MonoBehaviour
         joueurGagnant = null;
         joueurActuel = 0;
         numeroTour = 1;
-        popupGage.MasquerGage();
+        popupGage.MasquerPopup();
+        hud.UpdateNumeroTour(numeroTour);
+        hud.joueurActuel = joueurs[joueurActuel];
+        hud.InitBarreInfo();
+
     }
 
     // Retourne le joueur qui gagne
@@ -80,6 +107,7 @@ public class Jeu : MonoBehaviour
         {
             if (joueur.emplacement == plateau.cases[plateau.cases.Count - 1].GetComponent<Case>())
             {
+
                 return joueur;
             }
         }
@@ -118,7 +146,7 @@ public class Jeu : MonoBehaviour
         joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0, z);
         joueur.GetComponent<Joueur>().emplacement = c.GetComponent<Case>();
 
-        if (c.GetComponent<Case>().IdCase > 0)
+        if (c.GetComponent<Case>().IdCase > 0 && c.GetComponent<Case>().IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
         {
             Debug.Log(c.GetComponent<Case>().gage.description);
         }
