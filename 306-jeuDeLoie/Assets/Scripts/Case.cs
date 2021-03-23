@@ -2,28 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Classe qui définit une case
+/// </summary>
 public class Case : MonoBehaviour
 {
+    /// <summary>
+    /// Id de la case
+    /// </summary>
     public int IdCase;
 
-    // private GameObject gameObject;
+    /// <summary>
+    /// Gage de la case
+    /// </summary>
     public Gage gage;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    // public Case(long InIdCase, GameObject InGameObject)
-    // {
-    //     idCase = InIdCase;
-    //     gameObject = InGameObject;
-    // }
 }
