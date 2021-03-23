@@ -7,11 +7,16 @@ public class Popup : MonoBehaviour
 {
 
     /// <summary>
+    /// Définit si le popup est ouvert
+    /// </summary>
+    public bool isOpen = false;
+
+    /// <summary>
     /// Affiche le popup
     /// </summary>
     public void AfficherPopup()
     {
-        this.gameObject.SetActive(true);
+        ChangerEtat(true);
     }
 
     /// <summary>
@@ -19,6 +24,16 @@ public class Popup : MonoBehaviour
     /// </summary>
     public void MasquerPopup()
     {
-        this.gameObject.SetActive(false);
+        ChangerEtat(false);
+    }
+
+    /// <summary>
+    /// Change l'état du poup
+    /// </summary>
+    /// <param name="etat">True pour ouvrir, false pour fermer</param>
+    private void ChangerEtat(bool etat)
+    {
+        this.gameObject.SetActive(etat);
+        isOpen = etat;
     }
 }

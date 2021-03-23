@@ -5,8 +5,6 @@ using UnityEngine;
 public class Nain : Espece
 {
 
-    private string nom;
-
     // Start is called before the first frame update
     void Start()
     {
