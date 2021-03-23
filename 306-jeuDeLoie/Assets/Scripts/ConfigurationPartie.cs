@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class ConfigurationPartie : MonoBehaviour
 {
-    public GameObject jeu;
     private int idJoueur;
     private Espece espece;
-
-
 
     //Appelé avant la première frame
     void Start()
     {
-        
     }
 
     //Appelé à chaque frame
@@ -27,9 +23,9 @@ public class ConfigurationPartie : MonoBehaviour
         //Le joueur a modifie les informations de son personnage - appeler quand on clique sur une flèche
 
         // /!\ Récupérer le champs pseudo
-        jeu.GetComponent<Jeu>().ObtientJoueurs()[idJoueur].DetermineNom("nom récupéré dans le champs");
+        Jeu.joueurs[idJoueur].DetermineNom("nom récupéré dans le champs");
         // /!\ Récupérer la race sélectionnée (radiobutton)
-        jeu.GetComponent<Jeu>().ObtientJoueurs()[idJoueur].DetermineEspece(new Espece());
+        Jeu.joueurs[idJoueur].DetermineEspece(new Espece());
     }
 
     public void ChangerIdJoueur(bool direction)
@@ -38,17 +34,17 @@ public class ConfigurationPartie : MonoBehaviour
         if (direction)
         {
             idJoueur -= 1;
-            if (idJoueur < 0)
+            if (idJoueur < 0) // min 0 
             {
-                idJoueur = (jeu.GetComponent<Jeu>().ObtientNbJoueur()-1);
+                idJoueur = 0;
             }
         }
         else
         {
             idJoueur += 1;
-            if(idJoueur >= jeu.GetComponent<Jeu>().ObtientNbJoueur())
+            if(idJoueur >= Jeu.joueurs.Count)
             {
-                idJoueur = 0;
+                idJoueur = Jeu.joueurs.Count- 1; // index
             }
         }
     }

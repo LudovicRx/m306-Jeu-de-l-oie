@@ -22,7 +22,7 @@ public class Nain : Espece
 
     }
 
-    public override void Action()
+    public override void Action(Joueur joueurActuel)
     {
 
     }

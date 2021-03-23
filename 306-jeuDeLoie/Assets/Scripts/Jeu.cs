@@ -29,7 +29,7 @@ public class Jeu : MonoBehaviour
     /// </summary>
     /// <typeparam name="Joueur">Joueurs</typeparam>
     /// <returns>Liste des joueurs</returns>
-    public List<Joueur> joueurs = new List<Joueur>();
+    public static List<Joueur> joueurs = new List<Joueur>();
     /// <summary>
     /// Plateau de jeu
     /// </summary>
@@ -65,7 +65,7 @@ public class Jeu : MonoBehaviour
     /// </summary>
     public PopupParametres popupParametres;
     /// <summary>
-    /// Afifchage d'informations 
+    /// Afifchage d'informations
     /// </summary>
     public HUD hud;
 
@@ -175,14 +175,7 @@ public class Jeu : MonoBehaviour
         return joueurs.Count;
     }
 
-    /// <summary>
-    /// Set les joueurs
-    /// </summary>
-    /// <param name="joueursParDefaut">Liste des joueurs</param>
-    public void DetermineJoueurs(List<Joueur> joueursParDefaut)
-    {
-        this.joueurs = joueursParDefaut;
-    }
+   
 
     /// <summary>
     /// Obtient la liste des joueurs

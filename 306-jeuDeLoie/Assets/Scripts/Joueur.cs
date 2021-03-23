@@ -19,6 +19,7 @@ public class Joueur : MonoBehaviour
     /// <summary>
     /// Espece du joueur
     /// </summary>
+    public bool estCharmer;
     private Espece espece;
     /// <summary>
     /// Emplacement du joueur
