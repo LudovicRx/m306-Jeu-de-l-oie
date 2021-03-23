@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BtnFleche : MonoBehaviour
+public class BtnFlecheDroit : MonoBehaviour
 {
     public ConfigurationPartie configurationPartie;
-    private bool direction;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +27,6 @@ public class BtnFleche : MonoBehaviour
         //quand on clique sur une flèche, enregistrer les changement du personnage actuel
         configurationPartie.MettreAJourJoueur();
         //puis passer au personnage suivant
-        configurationPartie.ChangerIdJoueur(direction);
+        configurationPartie.ChangerIdJoueur(true);
     }
 }
