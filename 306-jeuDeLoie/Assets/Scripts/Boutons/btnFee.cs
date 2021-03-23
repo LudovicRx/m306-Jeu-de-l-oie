@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class btnFee : MonoBehaviour
 {
+    public GameObject button;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,12 @@ public class btnFee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void OnMouseDown()
+    {
+        button.GetComponent<Renderer>().material.color = Color.green;
         
     }
 }

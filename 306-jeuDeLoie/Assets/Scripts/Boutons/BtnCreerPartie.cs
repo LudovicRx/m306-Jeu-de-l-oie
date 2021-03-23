@@ -48,6 +48,6 @@ public class BtnCreerPartie : MonoBehaviour
             joueursProvisoirs[i].DetermineNomDefaut();
         }
 
-        jeu.GetComponent<Jeu>().DetermineJoueurs(joueursProvisoirs);
+        //jeu.GetComponent<Jeu>().DetermineJoueurs(joueursProvisoirs);
     }
 }
