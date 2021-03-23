@@ -10,7 +10,7 @@ public class Jeu : MonoBehaviour
     public GameObject orc;
 
     // VARIABLES
-    public List<Joueur> joueurs = new List<Joueur>();
+    public static List<Joueur> joueurs = new List<Joueur>();
     public Plateau plateau;
     private Oie oie;
 

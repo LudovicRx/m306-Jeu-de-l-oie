@@ -7,13 +7,12 @@ public class ConfigurationPartie : MonoBehaviour
     public GameObject jeu;
     private int idJoueur;
     private Espece espece;
-
-
+    private GameObject menu;
 
     //Appelé avant la première frame
     void Start()
     {
-        
+        Instantiate(menu).GetComponent<Menu>();
     }
 
     //Appelé à chaque frame

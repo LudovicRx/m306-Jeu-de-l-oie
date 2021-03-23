@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class BtnFleche : MonoBehaviour
 {
-    public GameObject configurationpartie;
+    public GameObject configurationPartie;
     private bool direction;
-    private ConfigurationPartie configuration;
 
     // Start is called before the first frame update
     void Start()
     {
-        ConfigurationPartie configuration = new ConfigurationPartie();
+        Instantiate(configurationPartie).GetComponent<ConfigurationPartie>();
     }
 
     // Update is called once per frame

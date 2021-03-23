@@ -8,13 +8,15 @@ public class BtnCreerPartie : MonoBehaviour
     public GameObject pageConfig;
     public GameObject fondPageConfig;
 
+    public GameObject jeu;
+
    // private string texte;
     private int nbJoueurs;
 
     // Start is called before the first frame update
     void Start()
     {
-        pageConfig.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
+        Instantiate(jeu).GetComponent<Jeu>();
     }
 
     // Update is called once per frame
@@ -36,17 +38,17 @@ public class BtnCreerPartie : MonoBehaviour
    }
 
     public void CreerPartie()
-    {
+    {        
         List<Joueur> joueursProvisoirs = new List<Joueur>();
 
         //Pré-fabriquer des personnage aux races et noms aléatoires, au nombre des joueurs
         for (int i = 0; i < nbJoueurs; i++)
-        {
-            joueursProvisoirs.Add(new Joueur());
+        {            
+            joueursProvisoirs.Add(Instantiate(joueur).GetComponent<Joueur>());
             joueursProvisoirs[i].DetermineEspeceDefaut();
             joueursProvisoirs[i].DetermineNomDefaut();
         }
 
-       //jeu.GetComponent<Jeu>().DetermineJoueurs(joueursProvisoirs); 
+        jeu.GetComponent<Jeu>().DetermineJoueurs(joueursProvisoirs);
     }
 }

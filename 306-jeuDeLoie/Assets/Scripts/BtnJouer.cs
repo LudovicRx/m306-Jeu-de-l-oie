@@ -14,7 +14,7 @@ public class BtnJouer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         creerPartie.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
+        creerPartie.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
     }
 
     // Update is called once per frame
