@@ -8,9 +8,8 @@ public class BtnCreerPartie : MonoBehaviour
     public GameObject pageConfig;
     public GameObject fondPageConfig;
 
-    private string texte;
+   // private string texte;
     private int nbJoueurs;
-    public GameObject jeu;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +47,6 @@ public class BtnCreerPartie : MonoBehaviour
             joueursProvisoirs[i].DetermineNomDefaut();
         }
 
-        jeu.GetComponent<Jeu>().DetermineJoueurs(joueursProvisoirs);
+       //jeu.GetComponent<Jeu>().DetermineJoueurs(joueursProvisoirs); 
     }
 }
