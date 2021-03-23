@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Jeu : MonoBehaviour
 {
-    public GameObject joueur1;
-    public GameObject joueur2;
-    public GameObject joueur3;
-    public GameObject joueur4;
+    public GameObject elf;
+    public GameObject fee;
+    public GameObject nain;
+    public GameObject orc;
 
     // VARIABLES
     public List<Joueur> joueurs = new List<Joueur>();
@@ -25,10 +25,10 @@ public class Jeu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        joueurs.Add(joueur1.GetComponent<Joueur>());
-        joueurs.Add(joueur2.GetComponent<Joueur>());
-        joueurs.Add(joueur3.GetComponent<Joueur>());
-        joueurs.Add(joueur4.GetComponent<Joueur>());
+        joueurs.Add(Instantiate(elf).GetComponent<Joueur>());
+        joueurs.Add(Instantiate(fee).GetComponent<Joueur>());
+        joueurs.Add(Instantiate(nain).GetComponent<Joueur>());
+        joueurs.Add(Instantiate(orc).GetComponent<Joueur>());
         foreach (var joueur in joueurs)
         {
             joueur.plateau = this.plateau;
@@ -48,7 +48,7 @@ public class Jeu : MonoBehaviour
 
         if (joueurGagnant == null)
         {
-            if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.L) && !popupGage.isOpen)
             {
                 joueurs[joueurActuel].LancerDe();
                 hud.InitBarreInfo();
@@ -71,7 +71,9 @@ public class Jeu : MonoBehaviour
                     numeroTour++;
                     hud.UpdateNumeroTour(numeroTour);
                 }
+
                 joueurGagnant = VerifierGagnant();
+
                 if (joueurGagnant != null)
                 {
                     popupFin.AfficherPopUpFin(joueurGagnant);
@@ -146,10 +148,10 @@ public class Jeu : MonoBehaviour
         joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0, z);
         joueur.GetComponent<Joueur>().emplacement = c.GetComponent<Case>();
 
-        if (c.GetComponent<Case>().IdCase > 0 && c.GetComponent<Case>().IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
-        {
-            Debug.Log(c.GetComponent<Case>().gage.description);
-        }
+        // if (c.GetComponent<Case>().IdCase > 0 && c.GetComponent<Case>().IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
+        // {
+        //     Debug.Log(c.GetComponent<Case>().gage.description);
+        // }
     }
 
     public void ActiverOie()

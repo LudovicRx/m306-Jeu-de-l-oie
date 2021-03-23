@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Orc : Espece
 {
-    private string nom;
-
     // Start is called before the first frame update
     void Start()
     {

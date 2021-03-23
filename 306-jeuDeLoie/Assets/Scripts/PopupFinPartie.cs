@@ -30,10 +30,4 @@ public class PopupFinPartie : Popup
     {
         SceneManager.LoadScene("Assets/Scenes/PagesParametresPartie.unity");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
