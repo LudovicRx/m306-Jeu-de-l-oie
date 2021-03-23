@@ -29,6 +29,7 @@ public class BtnCreerPartie : MonoBehaviour
        //Enregistrer le nombre de joueurs entré par les utilisateurs (remplacer par textarea.text)
        nbJoueurs = 1;
 
+
        //créer la partie (générer le bon nombre de joueurs)
        CreerPartie();
 
