@@ -1,5 +1,6 @@
 ﻿
 <<<<<<< HEAD
+<<<<<<< HEAD
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.TestRunner", "UnityEngine.TestRunner.csproj", "{09DF4D94-C020-DE28-69CE-352677EA5EB3}"
@@ -19,6 +20,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 >>>>>>> Stashed changes
 >>>>>>> main
+=======
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+>>>>>>> parent of 03e7459... Auto stash before merge of "main" and "origin/main"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{A05C2750-149C-84D0-5591-003FA818E5D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{0AAFA181-CFFC-AD36-4385-9A9A06ED3ECF}"
