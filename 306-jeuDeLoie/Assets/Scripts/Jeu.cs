@@ -2,25 +2,74 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Classe qui gère le jeu
+/// </summary>
 public class Jeu : MonoBehaviour
 {
+    /// <summary>
+    /// Modèle pour un joueur elf
+    /// </summary>
     public GameObject elf;
+    /// <summary>
+    /// Modèle pour un joueur fée
+    /// </summary>
     public GameObject fee;
+    /// <summary>
+    /// Modèle pour un joueur nain
+    /// </summary>
     public GameObject nain;
+    /// <summary>
+    /// Modèle pour un joueur orc
+    /// </summary>
     public GameObject orc;
 
-    // VARIABLES
+    /// <summary>
+    /// Liste des joueurs
+    /// </summary>
+    /// <typeparam name="Joueur">Joueurs</typeparam>
+    /// <returns>Liste des joueurs</returns>
     public static List<Joueur> joueurs = new List<Joueur>();
+    /// <summary>
+    /// Plateau de jeu
+    /// </summary>
     public Plateau plateau;
+    /// <summary>
+    /// Oie qui influe sur le jeu
+    /// </summary>
     private Oie oie;
 
+    /// <summary>
+    /// Joueur qui a gagné la partie
+    /// </summary>
     public Joueur joueurGagnant = null;
-    public int joueurActuel;
-    public PopupGage popupGage;
-
-    public PopupFinPartie popupFin;
-    public HUD hud;
+    /// <summary>
+    /// Index du joueur qui joue
+    /// </summary>
+    public int idJoueurActuel;
+    /// <summary>
+    /// Numéro du tour
+    /// </summary>
     public int numeroTour;
+
+    // Affichage
+    /// <summary>
+    /// Popup pour un gage
+    /// </summary>
+    public PopupGage popupGage;
+    /// <summary>
+    /// Popup de la fin de partie
+    /// </summary>
+    public PopupFinPartie popupFin;
+    /// <summary>
+    /// Popup du paramètres
+    /// </summary>
+    public PopupParametres popupParametres;
+    /// <summary>
+    /// Afifchage d'informations
+    /// </summary>
+    public HUD hud;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,25 +97,25 @@ public class Jeu : MonoBehaviour
 
         if (joueurGagnant == null)
         {
-            if (Input.GetKeyDown(KeyCode.L) && !popupGage.isOpen)
+            if (Input.GetKeyDown(KeyCode.L) && !popupGage.isOpen && !popupParametres.isOpen)
             {
-                joueurs[joueurActuel].LancerDe();
+                joueurs[idJoueurActuel].LancerDe();
                 hud.InitBarreInfo();
                 hud.UpdateBarreInfo();
 
-                BougeJoueur(joueurs[joueurActuel], joueurs[joueurActuel].emplacement.gameObject);
+                BougeJoueur(joueurs[idJoueurActuel], joueurs[idJoueurActuel].emplacement.gameObject);
 
-                if (joueurs[joueurActuel].emplacement.IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
+                if (joueurs[idJoueurActuel].emplacement.IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
                 {
-                    popupGage.AfficherGage(joueurs[joueurActuel].emplacement.gage);
+                    popupGage.AfficherGage(joueurs[idJoueurActuel].emplacement.gage);
                 }
 
 
-                joueurActuel++;
-                joueurActuel %= ObtientNbJoueur();
+                idJoueurActuel++;
+                idJoueurActuel %= ObtientNbJoueur();
 
-                hud.joueurActuel = joueurs[joueurActuel];
-                if (joueurActuel == 0)
+                hud.joueurActuel = joueurs[idJoueurActuel];
+                if (idJoueurActuel == 0)
                 {
                     numeroTour++;
                     hud.UpdateNumeroTour(numeroTour);
@@ -85,7 +134,9 @@ public class Jeu : MonoBehaviour
 
     }
 
-    // Initialisation du jeu
+    /// <summary>
+    /// Initialise le jeu
+    /// </summary>
     public void InitialiserJeu()
     {
         for (int i = 0; i < plateau.casesDepart.Count; i++)
@@ -93,16 +144,19 @@ public class Jeu : MonoBehaviour
             BougeJoueur(joueurs[i], plateau.casesDepart[i]);
         }
         joueurGagnant = null;
-        joueurActuel = 0;
+        idJoueurActuel = 0;
         numeroTour = 1;
         popupGage.MasquerPopup();
         hud.UpdateNumeroTour(numeroTour);
-        hud.joueurActuel = joueurs[joueurActuel];
+        hud.joueurActuel = joueurs[idJoueurActuel];
         hud.InitBarreInfo();
 
     }
 
-    // Retourne le joueur qui gagne
+    /// <summary>
+    /// Vérifie qui est le gagnant
+    /// </summary>
+    /// <returns>Retourne le joueur si il y a un gagnant, sinon null</returns>
     public Joueur VerifierGagnant()
     {
         foreach (var joueur in joueurs)
@@ -116,44 +170,55 @@ public class Jeu : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// Obtient le nombre de joueurs
+    /// </summary>
+    /// <returns>Nombre de joueur</returns>
     public int ObtientNbJoueur()
     {
         return joueurs.Count;
     }
 
+    /// <summary>
+    /// Set les joueurs
+    /// </summary>
+    /// <param name="joueursParDefaut">Liste des joueurs</param>
     public void DetermineJoueurs(List<Joueur> joueursParDefaut)
     {
         this.joueurs = joueursParDefaut;
     }
 
+    /// <summary>
+    /// Obtient la liste des joueurs
+    /// </summary>
+    /// <returns>Liste des joueurs</returns>
     public List<Joueur> ObtientJoueurs()
     {
         return joueurs;
     }
 
+    /// <summary>
+    /// Fait bouger un joueur
+    /// </summary>
+    /// <param name="joueur"></param>
+    /// <param name="c"></param>
     public void BougeJoueur(Joueur joueur, GameObject c)
     {
         float z = 0.05f;
-        // foreach (Transform child in c.GetComponent<Transform>())
-        // {
-        //     //  * child.localScale.z
-        //     z += child.worldToLocalMatrix.m21;
-        // }
-        // for (int i = 0; i < c.GetComponent<Transform>().childCount; i++)
-        // {
-
-        // }
         joueur.GetComponent<Transform>().SetParent(c.GetComponent<Transform>());
         joueur.GetComponent<Transform>().rotation = new Quaternion(0, 0, 0, 0);
         joueur.GetComponent<Transform>().localPosition = new Vector3(0, 0, z);
-        joueur.GetComponent<Joueur>().emplacement = c.GetComponent<Case>();
 
-        // if (c.GetComponent<Case>().IdCase > 0 && c.GetComponent<Case>().IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
-        // {
-        //     Debug.Log(c.GetComponent<Case>().gage.description);
-        // }
+        // Reset the speed
+        joueur.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        joueur.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
+        joueur.GetComponent<Joueur>().emplacement = c.GetComponent<Case>();
     }
 
+    /// <summary>
+    /// Met en marche la fonction de l'oie
+    /// </summary>
     public void ActiverOie()
     {
         //L'oie joue son tour

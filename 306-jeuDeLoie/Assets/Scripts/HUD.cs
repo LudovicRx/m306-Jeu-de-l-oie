@@ -2,30 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Classe qui gère l'interface
+/// Head Up Display - affichage à tête haute 
+/// </summary>
 public class HUD : MonoBehaviour
 {
+    /// <summary>
+    /// Barre d'informations
+    /// </summary>
     public BarreInfo barreInfo;
+    /// <summary>
+    /// Compteur de tour
+    /// </summary>
     public CompteurTour compteurTour;
+    /// <summary>
+    /// Joueur qui joue actuellement
+    /// </summary>
     public Joueur joueurActuel;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     /// <summary>
     /// Met à joue le numéro du tour    
     /// </summary>
     /// <param name="numeroTour">Numéro du tour</param>
     public void UpdateNumeroTour(int numeroTour) {
-        compteurTour.content.text = $"Tour n°{numeroTour}";
+        compteurTour.UpdateText(numeroTour);
     }
 
     /// <summary>
