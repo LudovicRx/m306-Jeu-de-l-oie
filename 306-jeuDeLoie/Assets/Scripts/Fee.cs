@@ -21,8 +21,8 @@ public class Fee : Espece
 
     }
 
-    public override void Action()
+    public override void Action(Joueur joueurActuel)
     {
-
+        
     }
 }

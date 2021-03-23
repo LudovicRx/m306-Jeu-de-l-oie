@@ -7,6 +7,7 @@ public class Joueur : MonoBehaviour
     public static List<string> noms = new List<string>() { "Thalion", "Alta", "Ama", "Ulnim", "Wing-leon", "Themeril", "Riantho", "Sylcir", "Voril", "Thosrodior", "Maehal", "Raxa", "Caror", "Vargnor", "Laimor", "Galcir", "Ingimor" };
     protected static System.Random nombreRandom = new System.Random();
     public string nom;
+    public bool estCharmer;
     private Espece espece;
     public Case emplacement;
     public Plateau plateau;

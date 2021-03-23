@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Orc : Espece
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,9 @@ public class Orc : Espece
 
     }
 
-    public override void Action()
+    public override void Action(Joueur joueurActuel)
     {
+       
 
     }
 }
