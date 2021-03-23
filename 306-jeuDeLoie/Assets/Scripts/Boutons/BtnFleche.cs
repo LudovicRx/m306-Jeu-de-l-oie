@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BtnFleche : MonoBehaviour
 {
-    public GameObject configurationPartie;
+    public ConfigurationPartie configurationPartie;
     private bool direction;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(configurationPartie).GetComponent<ConfigurationPartie>();
     }
 
     // Update is called once per frame
@@ -27,8 +26,8 @@ public class BtnFleche : MonoBehaviour
     public void ChangerConfiguration()
     {
         //quand on clique sur une flèche, enregistrer les changement du personnage actuel
-        configuration.GetComponent<ConfigurationPartie>().MettreAJourJoueur();
+        configurationPartie.MettreAJourJoueur();
         //puis passer au personnage suivant
-        configuration.GetComponent<ConfigurationPartie>().ChangerIdJoueur(direction);
+        configurationPartie.ChangerIdJoueur(direction);
     }
 }

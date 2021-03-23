@@ -10,12 +10,12 @@ public class BtnCreerPartie : MonoBehaviour
 
     private string texte;
     private int nbJoueurs;
-    public GameObject jeu;
 
     // Start is called before the first frame update
     void Start()
     {
         pageConfig.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
+         
     }
 
     // Update is called once per frame
@@ -48,6 +48,6 @@ public class BtnCreerPartie : MonoBehaviour
             joueursProvisoirs[i].DetermineNomDefaut();
         }
 
-        jeu.GetComponent<Jeu>().DetermineJoueurs(joueursProvisoirs);
+        Jeu.joueurs = joueursProvisoirs;
     }
 }

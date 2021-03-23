@@ -179,14 +179,7 @@ public class Jeu : MonoBehaviour
         return joueurs.Count;
     }
 
-    /// <summary>
-    /// Set les joueurs
-    /// </summary>
-    /// <param name="joueursParDefaut">Liste des joueurs</param>
-    public void DetermineJoueurs(List<Joueur> joueursParDefaut)
-    {
-        this.joueurs = joueursParDefaut;
-    }
+   
 
     /// <summary>
     /// Obtient la liste des joueurs
