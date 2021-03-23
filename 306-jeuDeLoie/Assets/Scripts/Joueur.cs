@@ -73,7 +73,7 @@ public class Joueur : MonoBehaviour
         //Donner un nom aléatoire au joueur par défaut
         System.Random rnd = new System.Random();
         int numNom = rnd.Next(0, noms.Count);
-        this.name = noms[numNom];
+        this.nom = noms[numNom];
     }
 
     public void DetermineEspece(Espece espece)

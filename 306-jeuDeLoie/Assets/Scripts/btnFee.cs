@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Espece : MonoBehaviour
+public class btnFee : MonoBehaviour
 {
-    private string nom;
+    public GameObject button;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +18,9 @@ public class Espece : MonoBehaviour
         
     }
 
-    public virtual void SeDeplacer()
+    void OnMouseDown()
     {
-
-    }
-
-    public virtual void Action()
-    {
-
+        button.GetComponent<Renderer>().material.color = Color.green;
+        
     }
 }
