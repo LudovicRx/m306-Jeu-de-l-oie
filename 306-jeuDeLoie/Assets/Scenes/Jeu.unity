@@ -448,6 +448,8 @@ MonoBehaviour:
   fee: {fileID: 4395530021417500688, guid: 1eba50cef323843439be4a7f49463f8d, type: 3}
   nain: {fileID: 8773527402530840241, guid: 006b36442f4e52846ae8283479250516, type: 3}
   orc: {fileID: 2348437356314488899, guid: 1cffd99dd8b74ca46b6c3e34915d03a8, type: 3}
+  vfxGlace: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e,
+    type: 3}
   plateau: {fileID: 952467375}
   oie: {fileID: 1573898984}
   joueurGagnant: {fileID: 0}
@@ -2802,7 +2804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   descriptionAttaque: 
   attaqueUtilise: 0
-  joueursEchanges: 0000000000000000
+  joueursAffectes: 
 --- !u!1 &1643471421
 GameObject:
   m_ObjectHideFlags: 0

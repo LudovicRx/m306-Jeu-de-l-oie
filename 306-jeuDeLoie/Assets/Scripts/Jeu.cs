@@ -24,6 +24,8 @@ public class Jeu : MonoBehaviour
     /// </summary>
     public GameObject orc;
 
+    public GameObject vfxGlace;
+
     /// <summary>
     /// Liste des joueurs
     /// </summary>
