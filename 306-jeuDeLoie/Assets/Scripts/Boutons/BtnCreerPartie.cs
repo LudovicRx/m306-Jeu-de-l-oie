@@ -7,6 +7,7 @@ public class BtnCreerPartie : MonoBehaviour
     public GameObject camera;
     public GameObject pageConfig;
     public GameObject fondPageConfig;
+    public GameObject inputField;
 
     private string texte;
     private int nbJoueurs;
