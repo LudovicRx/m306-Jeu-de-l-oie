@@ -33,18 +33,20 @@ public class Joueur : MonoBehaviour
     /// Résultat du dé du joueur
     /// </summary>
     public int resultatDes;
-
+    /// <summary>
+    /// Définit quelle attaque a recu le joueur
+    /// </summary>
+    public Oie.Attaque attaqueRecue;
+    /// <summary>
+    /// True si l'attaque est un bonus, false si l'attaque est un malus 
+    /// </summary>
+    public bool attaqueBenefique;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        attaqueRecue = Oie.Attaque.Rien;
+        attaqueBenefique = false;
     }
 
     /// <summary>
@@ -53,6 +55,10 @@ public class Joueur : MonoBehaviour
     public void LancerDe()
     {
         resultatDes = nombreRandom.Next(1, 7);
+        if (attaqueRecue == Oie.Attaque.Glace)
+        {
+            resultatDes /= Oie.GLACE_DIVISEUR;
+        }
         this.SeDeplacer(resultatDes);
     }
 
@@ -68,6 +74,10 @@ public class Joueur : MonoBehaviour
     public void SeDeplacer(int nbDeplacement)
     {
         int idNewCase = nbDeplacement + this.emplacement.GetComponent<Case>().IdCase;
+        if(idNewCase < 0) {
+            idNewCase = 0;
+        }
+        
         if (idNewCase <= plateau.cases.Count)
         {
             this.emplacement = plateau.cases[idNewCase - 1].GetComponent<Case>();
@@ -119,9 +129,24 @@ public class Joueur : MonoBehaviour
     /// Echange l'emplaement de deux joueurs
     /// </summary>
     /// <param name="autreJoueur">Joueur avec qui la place s'échange</param>
-    public void EchangerJoueurs(Joueur autreJoueur) {
+    public void EchangerJoueurs(Joueur autreJoueur)
+    {
         Case temp = this.emplacement;
         this.emplacement = autreJoueur.emplacement;
         autreJoueur.emplacement = temp;
+    }
+
+    /// <summary>
+    /// Remet à jour les attaque recues
+    /// </summary>
+    /// <param name="joueurs">Liste des joueurs</param>
+    /// <returns>Liste des joueurs remise à jour</returns>
+    public static List<Joueur> ResetAttaque(List<Joueur> joueurs)
+    {
+        foreach (var joueur in joueurs)
+        {
+            joueur.attaqueRecue = Oie.Attaque.Rien;
+        }
+        return joueurs;
     }
 }
