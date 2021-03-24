@@ -428,6 +428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 952467376}
+  - {fileID: 1573898983}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -447,12 +448,12 @@ MonoBehaviour:
   fee: {fileID: 4395530021417500688, guid: 1eba50cef323843439be4a7f49463f8d, type: 3}
   nain: {fileID: 8773527402530840241, guid: 006b36442f4e52846ae8283479250516, type: 3}
   orc: {fileID: 2348437356314488899, guid: 1cffd99dd8b74ca46b6c3e34915d03a8, type: 3}
-  joueurs: []
   plateau: {fileID: 952467375}
+  oie: {fileID: 1573898984}
   joueurGagnant: {fileID: 0}
   idJoueurActuel: 0
   numeroTour: 0
-  popupGage: {fileID: 1294751007}
+  popupInfo: {fileID: 1294751007}
   popupFin: {fileID: 852200975}
   popupParametres: {fileID: 435064615}
   hud: {fileID: 472886235}
@@ -628,7 +629,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Param\xE8tre"
+  m_Text: "Param\xE8tres"
 --- !u!222 &225356968
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -733,7 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1193,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6381523, g: 1, b: 0.43867922, a: 0.8509804}
+  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1229,7 +1230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4a53f2a8366904d9e0533bf99f0666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpen: 0
   btnReprendre: {fileID: 122244976}
   btnMenuPrincipal: {fileID: 1643471424}
   btnCroix: {fileID: 938417330}
@@ -1364,7 +1364,7 @@ GameObject:
   - component: {fileID: 466647330}
   - component: {fileID: 466647329}
   m_Layer: 5
-  m_Name: DescriptionGage
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1386,8 +1386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 413.22076, y: 188.1445}
+  m_AnchoredPosition: {x: 0, y: -15}
+  m_SizeDelta: {x: 415, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466647329
 MonoBehaviour:
@@ -1421,7 +1421,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Vous devez faire blablabla
+  m_Text: Contenu de la popup
 --- !u!222 &466647330
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1928,7 +1928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2783019, g: 1, b: 0.5069657, a: 1}
+  m_Color: {r: 0.8337264, g: 0.7877358, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1964,7 +1964,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf05c4a731dc77f42821d62e8897a418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpen: 0
   btnRejouer: {fileID: 454124801}
   btnMenuPrincipal: {fileID: 637013734}
   nomGagnant: {fileID: 1841803472}
@@ -2094,9 +2093,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
+    m_PressedColor: {r: 0.7830189, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 1, g: 0.5896226, b: 0.5896226, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2278,6 +2277,81 @@ Transform:
   m_Father: {fileID: 199200399}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &996786997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 996786998}
+  - component: {fileID: 996787000}
+  - component: {fileID: 996786999}
+  m_Layer: 5
+  m_Name: ConteneurTitre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &996786998
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996786997}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1128509030}
+  m_Father: {fileID: 1294751004}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 75}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &996786999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996786997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.2269491, g: 0.40584716, b: 0.6415094, a: 0.69411767}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &996787000
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996786997}
+  m_CullTransparentMesh: 0
 --- !u!1 &1128509029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,7 +2364,7 @@ GameObject:
   - component: {fileID: 1128509032}
   - component: {fileID: 1128509031}
   m_Layer: 5
-  m_Name: TitreGage
+  m_Name: Titre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2303,17 +2377,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128509029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1294751004}
+  m_Father: {fileID: 996786998}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 146.09}
-  m_SizeDelta: {x: 0, y: 67.07883}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1128509031
 MonoBehaviour:
@@ -2336,8 +2410,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
-    m_FontStyle: 0
+    m_FontSize: 40
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 70
@@ -2347,7 +2421,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Voici le texte de votre gage
+  m_Text: Titre de la popup
 --- !u!222 &1128509032
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2603,7 +2677,7 @@ GameObject:
   - component: {fileID: 1294751005}
   - component: {fileID: 1294751007}
   m_Layer: 5
-  m_Name: PopupGage
+  m_Name: PopupInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2620,7 +2694,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1128509030}
+  - {fileID: 996786998}
   - {fileID: 466647328}
   - {fileID: 358898654}
   m_Father: {fileID: 224683463}
@@ -2644,7 +2718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.74509805}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.84313726}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2680,10 +2754,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd233cd102c98245a16b84253cf9565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpen: 0
   button: {fileID: 358898655}
-  titreGage: {fileID: 1128509031}
-  descriptionGage: {fileID: 466647329}
+  titre: {fileID: 1128509031}
+  description: {fileID: 466647329}
+--- !u!1 &1573898982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1573898983}
+  - component: {fileID: 1573898984}
+  m_Layer: 0
+  m_Name: Oie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1573898983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573898982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 199200399}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1573898984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573898982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f729a8f5465cb4182dbdc8112b4caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  descriptionAttaque: 
+  attaqueUtilise: 0
+  joueursEchanges: 0000000000000000
 --- !u!1 &1643471421
 GameObject:
   m_ObjectHideFlags: 0

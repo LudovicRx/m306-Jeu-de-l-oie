@@ -23,7 +23,7 @@ public class Espece : MonoBehaviour
 
     }
 
-    public virtual void Action()
+    public virtual void Action(Joueur joueurActuel)
     {
 
     }

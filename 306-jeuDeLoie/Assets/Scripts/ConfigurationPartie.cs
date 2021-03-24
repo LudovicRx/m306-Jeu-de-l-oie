@@ -25,7 +25,7 @@ public class ConfigurationPartie : MonoBehaviour
         // /!\ Récupérer le champs pseudo
         Jeu.joueurs[idJoueur].DetermineNom("nom récupéré dans le champs");
         // /!\ Récupérer la race sélectionnée (radiobutton)
-        Jeu.joueurs[idJoueur].DetermineEspece(new Espece());
+        Jeu.joueurs[idJoueur].DetermineEspece(1);
     }
 
     public void ChangerIdJoueur(bool direction)

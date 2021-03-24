@@ -4,20 +4,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+/// <summary>
+/// Gère le plateau de jeu
+/// </summary>
 public class Plateau : MonoBehaviour
 {
+    /// <summary>
+    /// Modèle d'une case
+    /// </summary>
     public GameObject modeleCase;
+    /// <summary>
+    /// Nombre de colonnes
+    /// </summary>
     private int nbColonnes = 16;
+    /// <summary>
+    /// Nombre de lignes
+    /// </summary>
     private int nbLignes = 12;
+    /// <summary>
+    /// Aléatoire
+    /// </summary>
+    /// <returns>Générateur de nombre pseudos-aléatoire</returns>
     private System.Random random = new System.Random();
+    /// <summary>
+    /// Cases jouables
+    /// </summary>
     public Tuple<bool, int>[,] casesJouables;
+    /// <summary>
+    /// Cases qui ont été crées
+    /// </summary>
+    /// <typeparam name="GameObject">Case</typeparam>
+    /// <returns>Liste des cases</returns>
     public List<GameObject> cases = new List<GameObject>();
+    /// <summary>
+    /// Cases de départ
+    /// </summary>
+    /// <typeparam name="GameObject">4 cases de départ</typeparam>
+    /// <returns>Cases de départ sous forme de liste</returns>
     public List<GameObject> casesDepart = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-
         casesJouables = new Tuple<bool, int>[nbLignes, nbColonnes];
         casesJouables[0, 0] = new Tuple<bool, int>(true, 0);
         casesJouables[0, 1] = new Tuple<bool, int>(true, 0);
@@ -129,12 +157,9 @@ public class Plateau : MonoBehaviour
         GenererPlateau();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    /// <summary>
+    /// Génère le pateau
+    /// </summary>
     public void GenererPlateau()
     {
         for (int ligne = 0; ligne < nbLignes; ligne++)
@@ -162,11 +187,19 @@ public class Plateau : MonoBehaviour
                 }
             }
         }
+        // Trie la liste dans l'ordre des id
         cases = cases.OrderBy<GameObject, int>(c => c.GetComponent<Case>().IdCase).ToList();
     }
 
-
-
+    /// <summary>
+    /// Place un élément dans le jeu sous forme de quadrillage
+    /// </summary>
+    /// <param name="objectToPlace">Objet à placer</param>
+    /// <param name="parent">Parent </param>
+    /// <param name="objectSizeReference">Taille de l'objet de référence</param>
+    /// <param name="row">Numéro de ligne</param>
+    /// <param name="col">Numéro de colonne</param>
+    /// <returns>Objet placé</returns>
     private GameObject PlacerElement(GameObject objectToPlace, GameObject parent, GameObject objectSizeReference, int row, int col)
     {
         objectToPlace.GetComponent<Transform>().SetParent(parent.GetComponent<Transform>());

@@ -9,7 +9,13 @@ public class Popup : MonoBehaviour
     /// <summary>
     /// Définit si le popup est ouvert
     /// </summary>
-    public bool isOpen = false;
+    private bool isOpen = false;
+
+    /// <summary>
+    /// Définit si le popup est ouvert
+    /// </summary>
+    /// <value>True si ouvert, sinon false</value>
+    public bool IsOpen { get => isOpen; }
 
     /// <summary>
     /// Affiche le popup

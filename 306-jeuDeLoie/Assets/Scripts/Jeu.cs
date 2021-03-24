@@ -37,8 +37,7 @@ public class Jeu : MonoBehaviour
     /// <summary>
     /// Oie qui influe sur le jeu
     /// </summary>
-    private Oie oie;
-
+    public Oie oie;
     /// <summary>
     /// Joueur qui a gagné la partie
     /// </summary>
@@ -54,9 +53,9 @@ public class Jeu : MonoBehaviour
 
     // Affichage
     /// <summary>
-    /// Popup pour un gage
+    /// Popup pour les informations
     /// </summary>
-    public PopupGage popupGage;
+    public PopupInfo popupInfo;
     /// <summary>
     /// Popup de la fin de partie
     /// </summary>
@@ -78,13 +77,17 @@ public class Jeu : MonoBehaviour
         joueurs.Add(Instantiate(fee).GetComponent<Joueur>());
         joueurs.Add(Instantiate(nain).GetComponent<Joueur>());
         joueurs.Add(Instantiate(orc).GetComponent<Joueur>());
+        joueurs[0].DetermineEspece(0);
+        joueurs[1].DetermineEspece(1);
+        joueurs[2].DetermineEspece(3);
+        joueurs[3].DetermineEspece(2);
         foreach (var joueur in joueurs)
         {
             joueur.plateau = this.plateau;
         }
-        popupGage.MasquerPopup();
+        popupInfo.MasquerPopup();
         popupFin.btnRejouer.onClick.AddListener(InitialiserJeu);
-        popupGage.button.onClick.AddListener(hud.InitBarreInfo);
+        popupInfo.button.onClick.AddListener(hud.InitBarreInfo);
     }
 
     // Update is called once per frame
@@ -97,7 +100,7 @@ public class Jeu : MonoBehaviour
 
         if (joueurGagnant == null)
         {
-            if (Input.GetKeyDown(KeyCode.L) && !popupGage.isOpen && !popupParametres.isOpen)
+            if (Input.GetKeyDown(KeyCode.L) && !popupInfo.IsOpen && !popupParametres.IsOpen)
             {
                 joueurs[idJoueurActuel].LancerDe();
                 hud.InitBarreInfo();
@@ -107,9 +110,8 @@ public class Jeu : MonoBehaviour
 
                 if (joueurs[idJoueurActuel].emplacement.IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
                 {
-                    popupGage.AfficherGage(joueurs[idJoueurActuel].emplacement.gage);
+                    popupInfo.AfficherPopupInfo("Gage", joueurs[idJoueurActuel].emplacement.gage.description);
                 }
-
 
                 idJoueurActuel++;
                 idJoueurActuel %= ObtientNbJoueur();
@@ -118,7 +120,7 @@ public class Jeu : MonoBehaviour
                 if (idJoueurActuel == 0)
                 {
                     numeroTour++;
-                    hud.UpdateNumeroTour(numeroTour);
+                    popupInfo.button.onClick.AddListener(ActiverOie);
                 }
 
                 joueurGagnant = VerifierGagnant();
@@ -128,10 +130,8 @@ public class Jeu : MonoBehaviour
                     popupFin.AfficherPopUpFin(joueurGagnant);
 
                 }
-
             }
         }
-
     }
 
     /// <summary>
@@ -146,7 +146,7 @@ public class Jeu : MonoBehaviour
         joueurGagnant = null;
         idJoueurActuel = 0;
         numeroTour = 1;
-        popupGage.MasquerPopup();
+        popupInfo.MasquerPopup();
         hud.UpdateNumeroTour(numeroTour);
         hud.joueurActuel = joueurs[idJoueurActuel];
         hud.InitBarreInfo();
@@ -179,7 +179,7 @@ public class Jeu : MonoBehaviour
         return joueurs.Count;
     }
 
-   
+
 
     /// <summary>
     /// Obtient la liste des joueurs
@@ -214,7 +214,34 @@ public class Jeu : MonoBehaviour
     /// </summary>
     public void ActiverOie()
     {
+        popupInfo.button.onClick.AddListener(UpdateNumeroTour);
+        popupInfo.button.onClick.RemoveListener(ActiverOie);
         //L'oie joue son tour
-        oie.Jouer(joueurs.Count);
+        oie.Jouer(joueurs);
+        switch (oie.attaqueUtilise)
+        {
+            case Oie.Attaque.Tempete:
+                for (int i = 0; i < Oie.NB_JOUEURS_TEMPETE; i++)
+                {
+                    BougeJoueur(joueurs[oie.joueursAffectes[i]], joueurs[oie.joueursAffectes[i]].emplacement.gameObject);
+                }
+                break;
+            case Oie.Attaque.Innondation:
+                foreach (var joueur in joueurs)
+                {
+                    BougeJoueur(joueur, joueur.emplacement.gameObject);
+                }
+                break;
+        }
+        popupInfo.AfficherPopupInfo("Oie", oie.descriptionAttaque);
+    }
+
+    /// <summary>
+    /// Met à jour le numéro du tour
+    /// </summary>
+    private void UpdateNumeroTour()
+    {
+        hud.UpdateNumeroTour(numeroTour);
+        popupInfo.button.onClick.RemoveListener(UpdateNumeroTour);
     }
 }
