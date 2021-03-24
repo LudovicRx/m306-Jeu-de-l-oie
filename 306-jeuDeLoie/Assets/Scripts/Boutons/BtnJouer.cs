@@ -14,9 +14,9 @@ public class BtnJouer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        creerPartie.GetComponent<Transform>().position = new Vector3(transform.position.x, transform.position.y, 70);
+       BtnRed
+       
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -31,6 +31,6 @@ public class BtnJouer : MonoBehaviour
     public void OnMouseDown()
     {
        //aller sur la page pour créer une partie (choisir le nombre de joueurs)
-       camera.GetComponent<Transform>().position = new Vector3(fondCreerPartie.transform.position.x, fondCreerPartie.transform.position.y,60);
+       camera.GetComponent<Transform>().position = new Vector3(fondCreerPartie.transform.position.x, fondCreerPartie.transform.position.y,57);
     }
 }
