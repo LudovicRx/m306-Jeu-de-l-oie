@@ -237,6 +237,12 @@ public class Jeu : MonoBehaviour
                     BougeJoueur(joueur, joueur.emplacement.gameObject);
                 }
                 break;
+            case Oie.Attaque.Glace:
+                foreach (var joueur in joueurs)
+                {
+                   // joueur.emplacement.gameObject.
+                }
+                break;
         }
         popupInfo.AfficherPopupInfo("Oie", oie.descriptionAttaque);
     }
