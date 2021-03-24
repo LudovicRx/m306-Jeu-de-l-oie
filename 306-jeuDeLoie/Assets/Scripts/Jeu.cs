@@ -24,8 +24,6 @@ public class Jeu : MonoBehaviour
     /// </summary>
     public GameObject orc;
 
-    public GameObject vfxGlace;
-
     /// <summary>
     /// Liste des joueurs
     /// </summary>
@@ -104,17 +102,22 @@ public class Jeu : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.L) && !popupInfo.IsOpen && !popupParametres.IsOpen)
             {
-                joueurs[idJoueurActuel].LancerDe();
-                hud.InitBarreInfo();
-                hud.UpdateBarreInfo();
+                joueurs[idJoueurActuel].DesactiverGlace();
 
-                BougeJoueur(joueurs[idJoueurActuel], joueurs[idJoueurActuel].emplacement.gameObject);
-
-                if (joueurs[idJoueurActuel].emplacement.IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
+                if (joueurs[idJoueurActuel].attaqueRecue != Oie.Attaque.Foudre)
                 {
-                    popupInfo.AfficherPopupInfo("Gage", joueurs[idJoueurActuel].emplacement.gage.description);
-                }
+                    joueurs[idJoueurActuel].LancerDe();
+                    BougeJoueur(joueurs[idJoueurActuel], joueurs[idJoueurActuel].emplacement.gameObject);
 
+                    hud.InitBarreInfo();
+                    hud.UpdateBarreInfo();
+
+                    if (joueurs[idJoueurActuel].emplacement.IdCase < this.plateau.cases[this.plateau.cases.Count - 1].GetComponent<Case>().IdCase)
+                    {
+                        popupInfo.AfficherPopupInfo("Gage", joueurs[idJoueurActuel].emplacement.gage.description);
+                    }
+
+                }
                 idJoueurActuel++;
                 idJoueurActuel %= ObtientNbJoueur();
 
@@ -218,25 +221,24 @@ public class Jeu : MonoBehaviour
     {
         popupInfo.button.onClick.AddListener(UpdateNumeroTour);
         popupInfo.button.onClick.RemoveListener(ActiverOie);
+
         //L'oie joue son tour
         oie.Jouer(joueurs);
-        switch (oie.attaqueUtilise)
+        foreach (var joueur in joueurs)
         {
-            case Oie.Attaque.Tempete:
-                foreach (var joueur in joueurs)
+            if (joueur.attaqueRecue == oie.attaqueUtilise)
+            {
+                switch (oie.attaqueUtilise)
                 {
-                    if (joueur.attaqueRecue == Oie.Attaque.Tempete)
-                    {
+                    case Oie.Attaque.Tempete:
+                    case Oie.Attaque.Innondation:
                         BougeJoueur(joueur, joueur.emplacement.gameObject);
-                    }
+                        break;
+                    case Oie.Attaque.Glace:
+                        joueur.ActiverGlace();
+                        break;
                 }
-                break;
-            case Oie.Attaque.Innondation:
-                foreach (var joueur in joueurs)
-                {
-                    BougeJoueur(joueur, joueur.emplacement.gameObject);
-                }
-                break;
+            }
         }
         popupInfo.AfficherPopupInfo("Oie", oie.descriptionAttaque);
     }

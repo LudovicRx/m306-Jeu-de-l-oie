@@ -13,7 +13,6 @@ public class Oie : MonoBehaviour
     /// Nombre de joueurs afectés pour la tempete
     /// </summary>
     public static readonly int NB_JOUEURS_TEMPETE = 2;
-
     /// <summary>
     /// Nombre de case duquel on avance ou on recule lors de l'innondation
     /// </summary>
@@ -22,15 +21,6 @@ public class Oie : MonoBehaviour
     /// Diviseur du dé quand un joueur se fait glacer
     /// </summary>
     public static readonly int GLACE_DIVISEUR = 2;
-
-    /// <summary>
-    /// Valeur maximum pour un tirage aléatoire sur deux
-    /// </summary>
-    private static readonly int MAX_ALEATOIRE = 100;
-    /// <summary>
-    /// Valeur qui détermine pour un tirage aléatoire sur 2 le seuil
-    /// </summary>
-    private static readonly int SEUIL_ALEATOIRE = 50;
 
     /// <summary>
     /// Tout les types d'ataque de l'oie
@@ -67,11 +57,11 @@ public class Oie : MonoBehaviour
     public void Jouer(List<Joueur> joueurs)
     {
         // Pour récupérer le nombre de propriétés dans l'enum
-        //https://stackoverflow.com/questions/856154/total-number-of-items-defined-in-an-enum
+        // https://stackoverflow.com/questions/856154/total-number-of-items-defined-in-an-enum
         attaqueUtilise = (Oie.Attaque)nombreRandom.Next(0, Enum.GetNames(typeof(Oie.Attaque)).Length);
         joueurs = Joueur.ResetAttaque(joueurs);
 
-        //une chance sur 5 d'attaquer, 4 attaques possibles
+        // Une chance sur 5 d'attaquer, 4 attaques possibles
         switch (attaqueUtilise)
         {
             case Oie.Attaque.Tempete:
@@ -79,8 +69,8 @@ public class Oie : MonoBehaviour
                 descriptionAttaque = EcrireTexteTempete(joueurs);
                 break;
             case Oie.Attaque.Foudre:
-                Fourdroyer();
-                descriptionAttaque = "L'oie foudroie le terrain";
+                Foudroyer(joueurs);
+                descriptionAttaque = EcrireTexteFoudre(joueurs);
                 break;
             case Oie.Attaque.Innondation:
                 Innonder(joueurs);
@@ -92,9 +82,18 @@ public class Oie : MonoBehaviour
                 break;
             case Oie.Attaque.Rien:
             default:
-                descriptionAttaque = "L'oie n'a rien fait.";
+                descriptionAttaque = EcrireTexteDefaut();
                 break;
         }
+    }
+
+    /// <summary>
+    /// Ecrit le message par défaut
+    /// </summary>
+    /// <returns>Message par défaut</returns>
+    private string EcrireTexteDefaut()
+    {
+        return "L'oie n'a rien fait";
     }
 
     /// <summary>
@@ -160,6 +159,23 @@ public class Oie : MonoBehaviour
         return texteInnondation;
     }
 
+    /// <summary>
+    /// Ecrit la description pour le texte de la foudre
+    /// </summary>
+    /// <param name="joueurs">Liste des joueurs</param>
+    /// <returns>Texte de l'attaque de la foudre</returns>
+    private string EcrireTexteFoudre(List<Joueur> joueurs)
+    {
+        string texteFoudre = $"L'oie lance la foudre sur le terrain.";
+        foreach (var joueur in joueurs)
+        {
+            if (joueur.attaqueRecue == Oie.Attaque.Foudre)
+            {
+                texteFoudre += $"\n{joueur.nom} est immobilisé pour le prochain tour.";
+            }
+        }
+        return texteFoudre;
+    }
 
     //5 attaques de l'oie
     /// <summary>
@@ -185,11 +201,20 @@ public class Oie : MonoBehaviour
         joueurs[joueursTouches[0]].EchangerJoueurs(joueurs[joueursTouches[1]]);
     }
 
-    private void Fourdroyer()
+    /// <summary>
+    /// Foudroie les joueurs avec une chance sur 3
+    /// Si le joueur est touché, il ne peut pas joueur pendant un tour
+    /// </summary>
+    /// <param name="joueurs">Liste des joueurs</param>
+    private void Foudroyer(List<Joueur> joueurs)
     {
-        //chaque case du plateau a une chance sur 3 d'être immobilisée 
-        //(le joueur qui est est dessus ne joue pas pendant un tour)
-
+        foreach (var joueur in joueurs)
+        {
+            if (Random3())
+            {
+                joueur.attaqueRecue = Oie.Attaque.Foudre;
+            }
+        }
     }
 
     /// <summary>
@@ -232,9 +257,35 @@ public class Oie : MonoBehaviour
     /// <summary>
     /// Fait un random avec une chance sur 2
     /// </summary>
-    /// <returns>True sile chiffre est plus grand, sinon false</returns>
+    /// <returns>True une fois sur 2</returns>
     private bool Random2()
     {
-        return nombreRandom.Next(MAX_ALEATOIRE) >= SEUIL_ALEATOIRE;
+        return Random(2);
+    }
+
+    /// <summary>
+    /// Fait un random sur 3
+    /// </summary>
+    /// <returns>Retourn true théoriquement une fois sur 3</returns>
+    private bool Random3()
+    {
+        return Random(3);
+    }
+
+    /// <summary>
+    /// Fait un random et renvoie true ou false
+    /// </summary>
+    /// <param name="chance">Nombre de chance d'avoir le true, plus le chiffre est grand, moins on a de chance</param>
+    /// <returns>True ou false</returns>
+    private bool Random(int chance)
+    {
+        bool reponse = false;
+        // Multiplie le chiffre pour avoir un aléatoir plus correct
+        int chances = (chance - 1) * 100;
+        if (nombreRandom.Next(chances) < chances / 2)
+        {
+            reponse = true;
+        }
+        return reponse;
     }
 }

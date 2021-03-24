@@ -41,6 +41,10 @@ public class Joueur : MonoBehaviour
     /// True si l'attaque est un bonus, false si l'attaque est un malus 
     /// </summary>
     public bool attaqueBenefique;
+    /// <summary>
+    /// Effet de glace du personnage
+    /// </summary>
+    public GameObject effetGlace;
 
     // Start is called before the first frame update
     private void Start()
@@ -69,14 +73,28 @@ public class Joueur : MonoBehaviour
     }
 
     /// <summary>
+    /// Active l'effet de glace
+    /// </summary>
+    public void ActiverGlace() {
+        effetGlace.SetActive(true);
+    }
+
+    /// <summary>
+    /// Désactive l'effet de glace
+    /// </summary>
+    public void DesactiverGlace() {
+        effetGlace.SetActive(false);
+    }
+
+    /// <summary>
     /// Bouge le joueur
     /// </summary>
     /// <param name="nbDeplacement">Nombre de case du déplacement</param>
     public void SeDeplacer(int nbDeplacement)
     {
         int idNewCase = nbDeplacement + this.emplacement.GetComponent<Case>().IdCase;
-        if(idNewCase < 0) {
-            idNewCase = 0;
+        if(idNewCase <= 0) {
+            idNewCase = 1;
         }
         
         if (idNewCase <= plateau.cases.Count)
