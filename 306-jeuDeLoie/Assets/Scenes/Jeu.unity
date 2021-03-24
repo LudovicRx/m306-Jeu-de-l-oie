@@ -448,7 +448,6 @@ MonoBehaviour:
   fee: {fileID: 4395530021417500688, guid: 1eba50cef323843439be4a7f49463f8d, type: 3}
   nain: {fileID: 8773527402530840241, guid: 006b36442f4e52846ae8283479250516, type: 3}
   orc: {fileID: 2348437356314488899, guid: 1cffd99dd8b74ca46b6c3e34915d03a8, type: 3}
-  joueurs: []
   plateau: {fileID: 952467375}
   oie: {fileID: 1573898984}
   joueurGagnant: {fileID: 0}
@@ -630,7 +629,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Param\xE8tre"
+  m_Text: "Param\xE8tres"
 --- !u!222 &225356968
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1195,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6381523, g: 1, b: 0.43867922, a: 0.8509804}
+  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1929,7 +1928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2783019, g: 1, b: 0.5069657, a: 1}
+  m_Color: {r: 0.8337264, g: 0.7877358, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2683,7 +2682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1294751004
 RectTransform:
   m_ObjectHideFlags: 0

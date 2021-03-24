@@ -65,7 +65,7 @@ public class Joueur : MonoBehaviour
     /// Bouge le joueur
     /// </summary>
     /// <param name="nbDeplacement">Nombre de case du déplacement</param>
-    private void SeDeplacer(int nbDeplacement)
+    public void SeDeplacer(int nbDeplacement)
     {
         int idNewCase = nbDeplacement + this.emplacement.GetComponent<Case>().IdCase;
         if (idNewCase <= plateau.cases.Count)

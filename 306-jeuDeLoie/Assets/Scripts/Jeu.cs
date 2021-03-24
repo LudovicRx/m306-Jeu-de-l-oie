@@ -175,7 +175,7 @@ public class Jeu : MonoBehaviour
         return joueurs.Count;
     }
 
-   
+
 
     /// <summary>
     /// Obtient la liste des joueurs
@@ -214,15 +214,24 @@ public class Jeu : MonoBehaviour
         popupInfo.button.onClick.RemoveListener(ActiverOie);
         //L'oie joue son tour
         oie.Jouer(joueurs);
-        if(oie.attaqueUtilise == Oie.Attaque.Tempete) {
-            for (int i = 0; i < oie.joueursEchanges.Length; i++)
-            {
-                BougeJoueur(joueurs[oie.joueursEchanges[i]], joueurs[oie.joueursEchanges[i]].emplacement.gameObject);
-            }
+        switch (oie.attaqueUtilise)
+        {
+            case Oie.Attaque.Tempete:
+                for (int i = 0; i < Oie.NB_JOUEURS_TEMPETE; i++)
+                {
+                    BougeJoueur(joueurs[oie.joueursAffectes[i]], joueurs[oie.joueursAffectes[i]].emplacement.gameObject);
+                }
+                break;
+            case Oie.Attaque.Innondation:
+                foreach (var joueur in joueurs)
+                {
+                    BougeJoueur(joueur, joueur.emplacement.gameObject);
+                }
+                break;
         }
         popupInfo.AfficherPopupInfo("Oie", oie.descriptionAttaque);
     }
-    
+
     /// <summary>
     /// Met à jour le numéro du tour
     /// </summary>

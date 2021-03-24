@@ -3,20 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// public enum Attaque
-// {
-//     Tempete = 0,
-//     Foudre = 1,
-//     Innodation = 2,
-//     Glace = 3
-
-// }
-
 /// <summary>
 /// Classe qui gère l'oie
 /// </summary>
 public class Oie : MonoBehaviour
 {
+    // Constantes
+    /// <summary>
+    /// Nombre de joueurs afectés pour la tempete
+    /// </summary>
+    public static readonly int NB_JOUEURS_TEMPETE = 2;
+
+    /// <summary>
+    /// Nombre de case duquel on avance ou on recule lors de l'innondation
+    /// </summary>
+    private static readonly int NB_CASE_INNONDATION = 3;
+
+    /// <summary>
+    /// Valeur maximum pour un tirage aléatoire sur deux
+    /// </summary>
+    private static readonly int MAX_ALEATOIRE = 100;
+    /// <summary>
+    /// Valeur qui détermine pour un tirage aléatoire sur 2 le seuil
+    /// </summary>
+    private static readonly int SEUIL_ALEATOIRE = 50;
+
     /// <summary>
     /// Tout les types d'ataque de l'oie
     /// </summary>
@@ -29,6 +40,7 @@ public class Oie : MonoBehaviour
         Rien = 4
     }
 
+    // Champs
     /// <summary>
     /// Variable random
     /// </summary>
@@ -46,7 +58,7 @@ public class Oie : MonoBehaviour
     /// <summary>
     /// Joueurs qui ont été échangés
     /// </summary>
-    public int[] joueursEchanges = new int[2];
+    public List<int> joueursAffectes = new List<int>();
 
     /// <summary>
     /// Fait jouer l'oie
@@ -63,15 +75,28 @@ public class Oie : MonoBehaviour
         {
             case Oie.Attaque.Tempete:
                 Tempeter(joueurs);
-                descriptionAttaque = $"L'oie fait une tempête et échange {joueurs[joueursEchanges[0]].nom} et {joueurs[joueursEchanges[1]].nom}";
+                descriptionAttaque = $"L'oie fait une tempête et échange {joueurs[joueursAffectes[0]].nom} et {joueurs[joueursAffectes[1]].nom}";
                 break;
             case Oie.Attaque.Foudre:
                 Fourdroyer();
                 descriptionAttaque = "L'oie foudroie le terrain";
                 break;
             case Oie.Attaque.Innondation:
-                Innonder();
-                descriptionAttaque = "L'oie fait innonder le terrain";
+                bool[] resultat = Innonder(joueurs);
+                descriptionAttaque = "L'oie fait innonder le terrain.";
+                for (int i = 0; i < joueurs.Count; i++)
+                {
+                    descriptionAttaque += $"\n{joueurs[i].nom} a ";
+                    if (resultat[i])
+                    {
+                        descriptionAttaque += $"avancé ";
+                    }
+                    else
+                    {
+                        descriptionAttaque += $"reculé ";
+                    }
+                    descriptionAttaque += $"de {NB_CASE_INNONDATION} cases.";
+                }
                 break;
             case Oie.Attaque.Glace:
                 Glacer();
@@ -86,33 +111,54 @@ public class Oie : MonoBehaviour
 
 
     //5 attaques de l'oie
+    /// <summary>
+    /// Fait la tempête de l'oie, échange deux joueurs aléatoirement
+    /// </summary>
+    /// <param name="joueurs">List de tout les joueurs</param>
     private void Tempeter(List<Joueur> joueurs)
     {
-        //sélectionner au hasard deux joueurs
-        int idJoueur1 = 0;
-        int idJoueur2 = 0;
-        // Sélectionne deux joueurs au hasard
         do
         {
-            idJoueur1 = nombreRandom.Next(0, joueurs.Count);
-            idJoueur2 = nombreRandom.Next(0, joueurs.Count);
-        } while (idJoueur1 == idJoueur2);
+            joueursAffectes.Clear();
+            for (int i = 0; i < NB_JOUEURS_TEMPETE; i++)
+            {
+                joueursAffectes.Add(nombreRandom.Next(0, joueurs.Count));
+            }
+        } while (joueursAffectes[0] == joueursAffectes[1]);
 
-        joueursEchanges[0] = idJoueur1;
-        joueursEchanges[1] = idJoueur2;
 
-        //échanger leurs positions
-        joueurs[idJoueur1].EchangerJoueurs(joueurs[idJoueur2]);
+        // Echanger leurs positions
+        joueurs[joueursAffectes[0]].EchangerJoueurs(joueurs[joueursAffectes[1]]);
     }
+
     private void Fourdroyer()
     {
         //chaque case du plateau a une chance sur 3 d'être immobilisée 
         //(le joueur qui est est dessus ne joue pas pendant un tour)
 
     }
-    private void Innonder()
+
+    /// <summary>
+    /// Fait innonder le terraine
+    /// Chaque joueur a une chance sur deux de reculer de trois case et une chance sur deux d'avancer de trois cases
+    /// </summary>
+    /// <param name="joueurs">Liste des joueurs</param>
+    /// <returns>Retourne qui a avancer (true) et qui a reculer (false)</returns>
+    private bool[] Innonder(List<Joueur> joueurs)
     {
-        //chaque joueur a une chance sur deux de reculer de trois case et une chance sure deux d'avancer de trois cases
+        bool[] resultatJoueurs = new bool[joueurs.Count];
+        for (int i = 0; i < joueurs.Count; i++)
+        {
+            int deplacement = NB_CASE_INNONDATION;
+            resultatJoueurs[i] = true;
+            if (nombreRandom.Next(MAX_ALEATOIRE) >= SEUIL_ALEATOIRE)
+            {
+                resultatJoueurs[i] = false;
+                deplacement = -deplacement;
+            }
+            joueurs[i].SeDeplacer(deplacement);
+        }
+        return resultatJoueurs;
 
     }
     private void Glacer()
