@@ -24,6 +24,8 @@ public class Jeu : MonoBehaviour
     /// </summary>
     public GameObject orc;
 
+    public GameObject vfxGlace;
+
     /// <summary>
     /// Liste des joueurs
     /// </summary>
@@ -221,9 +223,12 @@ public class Jeu : MonoBehaviour
         switch (oie.attaqueUtilise)
         {
             case Oie.Attaque.Tempete:
-                for (int i = 0; i < Oie.NB_JOUEURS_TEMPETE; i++)
+                foreach (var joueur in joueurs)
                 {
-                    BougeJoueur(joueurs[oie.joueursAffectes[i]], joueurs[oie.joueursAffectes[i]].emplacement.gameObject);
+                    if (joueur.attaqueRecue == Oie.Attaque.Tempete)
+                    {
+                        BougeJoueur(joueur, joueur.emplacement.gameObject);
+                    }
                 }
                 break;
             case Oie.Attaque.Innondation:

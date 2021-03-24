@@ -448,6 +448,8 @@ MonoBehaviour:
   fee: {fileID: 4395530021417500688, guid: 1eba50cef323843439be4a7f49463f8d, type: 3}
   nain: {fileID: 8773527402530840241, guid: 006b36442f4e52846ae8283479250516, type: 3}
   orc: {fileID: 2348437356314488899, guid: 1cffd99dd8b74ca46b6c3e34915d03a8, type: 3}
+  vfxGlace: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e,
+    type: 3}
   plateau: {fileID: 952467375}
   oie: {fileID: 1573898984}
   joueurGagnant: {fileID: 0}
@@ -1377,7 +1379,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466647327}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1386,8 +1388,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 415, y: 200}
+  m_AnchoredPosition: {x: 0, y: -20}
+  m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &466647329
 MonoBehaviour:
@@ -1412,9 +1414,9 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 28
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 28
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2682,7 +2684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1294751004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2802,7 +2804,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   descriptionAttaque: 
   attaqueUtilise: 0
-  joueursEchanges: 0000000000000000
 --- !u!1 &1643471421
 GameObject:
   m_ObjectHideFlags: 0
