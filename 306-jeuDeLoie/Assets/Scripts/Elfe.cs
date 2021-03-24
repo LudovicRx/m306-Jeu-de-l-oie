@@ -26,9 +26,9 @@ public class Elfe : Espece
     {
         float result = rnd.Next(1, 101);
         result = Mathf.Round(result / 10f);
-        if (result <= 10)
+        if (result <= 50)
         {
-            joueurActuel.emplacement.IdCase += 1;
+            joueurActuel.SeDeplacer(1);
         }
     }
 }

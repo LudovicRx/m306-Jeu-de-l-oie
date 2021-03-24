@@ -77,6 +77,10 @@ public class Jeu : MonoBehaviour
         joueurs.Add(Instantiate(fee).GetComponent<Joueur>());
         joueurs.Add(Instantiate(nain).GetComponent<Joueur>());
         joueurs.Add(Instantiate(orc).GetComponent<Joueur>());
+        joueurs[0].DetermineEspece(0);
+        joueurs[1].DetermineEspece(1);
+        joueurs[2].DetermineEspece(3);
+        joueurs[3].DetermineEspece(2);
         foreach (var joueur in joueurs)
         {
             joueur.plateau = this.plateau;

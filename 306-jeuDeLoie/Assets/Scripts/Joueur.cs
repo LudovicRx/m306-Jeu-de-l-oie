@@ -53,6 +53,7 @@ public class Joueur : MonoBehaviour
     public void LancerDe()
     {
         resultatDes = nombreRandom.Next(1, 7);
+        this.espece.Action(this);
         this.SeDeplacer(resultatDes);
     }
 
@@ -105,9 +106,23 @@ public class Joueur : MonoBehaviour
         this.nom = noms[numNom];
     }
 
-    public void DetermineEspece(Espece espece)
+    public void DetermineEspece(int numEspece)
     {
-        this.espece = espece;
+            switch (numEspece)
+        {
+            case 0:
+                this.espece = new Elfe();
+                break;
+            case 1:
+                this.espece = new Fee();
+                break;
+            case 2:
+                this.espece = new Orc();
+                break;
+            case 3:
+                this.espece = new Nain();
+                break;
+        }
     }
 
     public void DetermineNom(string nom)
