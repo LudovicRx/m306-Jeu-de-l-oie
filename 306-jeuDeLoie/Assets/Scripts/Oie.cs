@@ -245,11 +245,15 @@ public class Oie : MonoBehaviour
     /// <param name="joueurs">List des joueurs</param>
     private void Glacer(List<Joueur> joueurs)
     {
-        foreach (var joueur in joueurs)
+        foreach (GameObject c in joueurs[0].plateau.cases)
         {
             if (Random2())
             {
-                joueur.attaqueRecue = Oie.Attaque.Glace;
+                for (int i = 0; i < c.GetComponent<Transform>().childCount; i++)
+                {
+                    c.GetComponent<Transform>().GetChild(i).GetComponent<Joueur>().attaqueRecue = Oie.Attaque.Glace;
+                }
+                
             }
         }
     }
