@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3585259570927420924}
   - component: {fileID: 3585259570927420925}
   - component: {fileID: 3585259570927420923}
+  - component: {fileID: 2545455258216141205}
   m_Layer: 0
   m_Name: FEE-PION
   m_TagString: Untagged
@@ -166,6 +167,22 @@ MonoBehaviour:
   attaqueRecue: 0
   attaqueBenefique: 0
   effetGlace: {fileID: 3210326461205569430}
+--- !u!114 &2545455258216141205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395530021417500688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec5bddd4be581f44b2d77a771d83176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glace: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e, type: 3}
+  foudre: {fileID: 100000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
+  tempete: {fileID: 100008, guid: 1ca16f2a31fb6a548ad8954bed1d321f, type: 3}
+  charme: {fileID: 1545806602296978, guid: 9e4577abe56a95f4a91d29a0473cd30c, type: 3}
 --- !u!1001 &3903217104212761849
 PrefabInstance:
   m_ObjectHideFlags: 0
