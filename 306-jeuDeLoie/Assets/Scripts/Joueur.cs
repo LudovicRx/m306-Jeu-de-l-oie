@@ -25,6 +25,9 @@ public class Joueur : MonoBehaviour
     /// Emplacement du joueur
     /// </summary>
     public Case emplacement;
+
+    //public vfxHandler vfx;
+
     /// <summary>
     /// Plateau du joueur
     /// </summary>
