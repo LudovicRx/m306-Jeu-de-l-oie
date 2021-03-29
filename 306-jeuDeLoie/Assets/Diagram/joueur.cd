@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Elfe">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEgAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Elfe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Espece">
+    <Position X="6.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAACAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Espece.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fee">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Fee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Joueur">
+    <Position X="12.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBQJhAUAAGAAAAAAAAIBIAAAgCQAAAQAAIgAQACAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Joueur.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nain">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Nain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Orc">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\Orc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

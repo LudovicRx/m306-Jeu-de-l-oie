@@ -192,7 +192,7 @@ public class Oie : MonoBehaviour
             {
                 // joueursAffectes.Add(nombreRandom.Next(0, joueurs.Count));
                 joueursTouches[i] = nombreRandom.Next(0, joueurs.Count);
-                joueurs[i].attaqueRecue = Oie.Attaque.Tempete;
+                joueurs[joueursTouches[i]].attaqueRecue = Oie.Attaque.Tempete;
             }
         } while (joueursTouches[0] == joueursTouches[1]);
 

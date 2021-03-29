@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Case">
+    <Position X="7" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Case.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jeu">
+    <Position X="11.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQABAgAICBAAIEAAACBIEAAECYAQAAEQAABAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\Jeu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Oie">
+    <Position X="9.25" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Oie.Attaque" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Oie.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACKBQAAgEAAAAAAACIAAIgCAAYABAAAIAQAAAAAAEE=</HashCode>
+      <FileName>Assets\Scripts\Oie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plateau">
+    <Position X="7" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIIAAAAAQAIEAAAAAAQAAQAAQEAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Plateau.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
