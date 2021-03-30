@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6777138207739976764}
   - component: {fileID: 6777138207739976754}
   - component: {fileID: 6777138207739976753}
+  - component: {fileID: 6777138207739976758}
   - component: {fileID: 6777138207739976755}
   - component: {fileID: 6777138207739976765}
-  - component: {fileID: 6777138207739976758}
   - component: {fileID: 330722037414581897}
   m_Layer: 0
   m_Name: ELF-PION
@@ -108,6 +108,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &6777138207739976758
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777138207739976759}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13167503, y: 0.13763857, z: 0.2921391}
+  m_Center: {x: -0.0018286668, y: -0.0064935177, z: -0.020320928}
 --- !u!114 &6777138207739976755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,25 +147,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nom: Elf
   estCharmer: 0
+  espece: {fileID: 6777138207739976755}
   emplacement: {fileID: 0}
   plateau: {fileID: 0}
   resultatDes: 0
-  attaqueRecue: 0
+  attaqueRecue: 4
   attaqueBenefique: 0
   effetGlace: {fileID: 1685649389218110466}
---- !u!65 &6777138207739976758
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6777138207739976759}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.13167503, y: 0.13763857, z: 0.2921391}
-  m_Center: {x: -0.0018286668, y: -0.0064935177, z: -0.020320928}
 --- !u!114 &330722037414581897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,10 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec5bddd4be581f44b2d77a771d83176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glace: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e, type: 3}
-  foudre: {fileID: 100000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
-  tempete: {fileID: 100008, guid: 1ca16f2a31fb6a548ad8954bed1d321f, type: 3}
-  charme: {fileID: 1545806602296978, guid: 9e4577abe56a95f4a91d29a0473cd30c, type: 3}
 --- !u!1001 &991632626611019629
 PrefabInstance:
   m_ObjectHideFlags: 0

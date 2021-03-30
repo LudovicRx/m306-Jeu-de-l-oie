@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2738455978650919365}
   - component: {fileID: 3585259570927420921}
   - component: {fileID: 3585259570927420927}
-  - component: {fileID: 3585259570927420924}
   - component: {fileID: 3585259570927420925}
   - component: {fileID: 3585259570927420923}
   - component: {fileID: 2545455258216141205}
@@ -122,19 +121,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.058404956, y: 0.07809641, z: 0.13034919}
   m_Center: {x: 0.001993587, y: 0.0036756317, z: 0.020573284}
---- !u!65 &3585259570927420924
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4395530021417500688}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.05840496, y: 0.07809641, z: 0.13034919}
-  m_Center: {x: 0.001993587, y: 0.003675632, z: 0.020573284}
 --- !u!114 &3585259570927420925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,10 +147,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nom: Fee
   estCharmer: 0
+  espece: {fileID: 3585259570927420925}
   emplacement: {fileID: 0}
   plateau: {fileID: 0}
   resultatDes: 0
-  attaqueRecue: 0
+  attaqueRecue: 4
   attaqueBenefique: 0
   effetGlace: {fileID: 3210326461205569430}
 --- !u!114 &2545455258216141205
@@ -179,10 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec5bddd4be581f44b2d77a771d83176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glace: {fileID: 1920325297268671343, guid: 889dd67908ff48640a817f0b0074814e, type: 3}
-  foudre: {fileID: 100000, guid: 352304b7fbe11f445970df6ae36e6227, type: 3}
-  tempete: {fileID: 100008, guid: 1ca16f2a31fb6a548ad8954bed1d321f, type: 3}
-  charme: {fileID: 1545806602296978, guid: 9e4577abe56a95f4a91d29a0473cd30c, type: 3}
 --- !u!1001 &3903217104212761849
 PrefabInstance:
   m_ObjectHideFlags: 0

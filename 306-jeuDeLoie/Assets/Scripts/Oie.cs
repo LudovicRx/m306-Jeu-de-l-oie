@@ -27,11 +27,11 @@ public class Oie : MonoBehaviour
     /// </summary>
     public enum Attaque
     {
-        Tempete = 0,
-        Foudre = 1,
-        Innondation = 2,
-        Glace = 3,
-        Rien = 4
+        Rien = 0,
+        Tempete = 1,
+        Foudre = 2,
+        Innondation = 3,
+        Glace = 4,
     }
 
     // Champs

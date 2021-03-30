@@ -20,7 +20,10 @@ public class Joueur : MonoBehaviour
     /// Espece du joueur
     /// </summary>
     public bool estCharmer;
-    private Espece espece;
+    /// <summary>
+    /// Espece du joueur
+    /// </summary>
+    public Espece espece;
     /// <summary>
     /// Emplacement du joueur
     /// </summary>
@@ -66,26 +69,28 @@ public class Joueur : MonoBehaviour
         {
             resultatDes /= Oie.GLACE_DIVISEUR;
         }
-        this.espece.Action(this);
-        this.SeDeplacer(resultatDes);
+        Action();
+        SeDeplacer(resultatDes);
     }
 
     public void Action()
     {
-
+        espece.Action(this);
     }
 
     /// <summary>
     /// Active l'effet de glace
     /// </summary>
-    public void ActiverGlace() {
+    public void ActiverGlace()
+    {
         effetGlace.SetActive(true);
     }
 
     /// <summary>
     /// Désactive l'effet de glace
     /// </summary>
-    public void DesactiverGlace() {
+    public void DesactiverGlace()
+    {
         effetGlace.SetActive(false);
     }
 
@@ -96,10 +101,11 @@ public class Joueur : MonoBehaviour
     public void SeDeplacer(int nbDeplacement)
     {
         int idNewCase = nbDeplacement + this.emplacement.GetComponent<Case>().IdCase;
-        if(idNewCase <= 0) {
+        if (idNewCase <= 0)
+        {
             idNewCase = 1;
         }
-        
+
         if (idNewCase <= plateau.cases.Count)
         {
             this.emplacement = plateau.cases[idNewCase - 1].GetComponent<Case>();
@@ -108,25 +114,25 @@ public class Joueur : MonoBehaviour
 
     public void DetermineEspeceDefaut()
     {
-        System.Random rnd = new System.Random();
-        int numEspece = rnd.Next(0, 4);
+        // System.Random rnd = new System.Random();
+        // int numEspece = rnd.Next(0, 4);
 
-        //Donner une espèce aléatoire au joueur par défaut  
-        switch (numEspece)
-        {
-            case 0:
-                this.espece = new Elfe();
-                break;
-            case 1:
-                this.espece = new Fee();
-                break;
-            case 2:
-                this.espece = new Orc();
-                break;
-            case 3:
-                this.espece = new Nain();
-                break;
-        }
+        // //Donner une espèce aléatoire au joueur par défaut  
+        // switch (numEspece)
+        // {
+        //     case 0:
+        //         this.espece = new Elfe();
+        //         break;
+        //     case 1:
+        //         this.espece = new Fee();
+        //         break;
+        //     case 2:
+        //         this.espece = new Orc();
+        //         break;
+        //     case 3:
+        //         this.espece = new Nain();
+        //         break;
+        // }
     }
 
     public void DetermineNomDefaut()
@@ -139,21 +145,21 @@ public class Joueur : MonoBehaviour
 
     public void DetermineEspece(int numEspece)
     {
-            switch (numEspece)
-        {
-            case 0:
-                this.espece = new Elfe();
-                break;
-            case 1:
-                this.espece = new Fee();
-                break;
-            case 2:
-                this.espece = new Orc();
-                break;
-            case 3:
-                this.espece = new Nain();
-                break;
-        }
+        //     switch (numEspece)
+        // {
+        //     case 0:
+        //         this.espece = new Elfe();
+        //         break;
+        //     case 1:
+        //         this.espece = new Fee();
+        //         break;
+        //     case 2:
+        //         this.espece = new Orc();
+        //         break;
+        //     case 3:
+        //         this.espece = new Nain();
+        //         break;
+        // }
     }
 
     public void DetermineNom(string nom)
